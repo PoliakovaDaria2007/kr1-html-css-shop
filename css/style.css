@@ -116,6 +116,8 @@ footer {
   text-decoration: underline;
 }
 
+/* -------- Кнопка -------- */
+
 .button {
   display: inline-block;
   padding: var(--space-sm) var(--space-md);
@@ -231,6 +233,7 @@ footer {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   font: inherit;
+  transition: border-color 0.2s ease;
 }
 
 .form-field input[type="checkbox"] {
@@ -269,6 +272,32 @@ footer {
   display: flex;
   gap: var(--space-sm);
   margin-top: var(--space-lg);
+}
+
+.form-actions button {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font: inherit;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.form-actions button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.form-actions button:active {
+  transform: scale(0.97);
+  background-color: var(--color-primary-dark);
+}
+
+.form-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* -------- Сообщение об успешной отправке -------- */
