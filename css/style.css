@@ -78,17 +78,23 @@ a:focus-visible {
   outline-offset: 3px;
 }
 
+/* -------- Шапка и меню -------- */
+
 header {
   background-color: var(--color-surface);
-}
-
-footer {
-  background-color: var(--color-surface);
+  position: sticky;        /* Закрепляем шапку */
+  top: 0;                  /* Прилипает к верху */
+  z-index: 100;            /* Поверх контента */
 }
 
 .site-header {
   max-width: var(--container-width);
   margin: 0 auto;
+  display: flex;               /* Логотип и меню в ряд */
+  align-items: center;         /* Выравнивание по центру по вертикали */
+  justify-content: space-between; /* Логотип слева, меню справа */
+  flex-wrap: wrap;             /* Перенос на узких экранах */
+  gap: var(--space-md);
 }
 
 .site-logo {
@@ -99,12 +105,15 @@ footer {
 
 .site-nav__list {
   padding: 0;
-  margin: var(--space-md) 0 0;
+  margin: 0;
   list-style: none;
+  display: flex;              /* Горизонтальное меню */
+  flex-wrap: wrap;            /* Перенос пунктов на узких экранах */
+  gap: var(--space-md);       /* Отступ между пунктами */
 }
 
 .site-nav__list li {
-  margin-bottom: var(--space-sm);
+  margin-bottom: 0;
 }
 
 .site-nav__list a {
@@ -116,7 +125,7 @@ footer {
   text-decoration: underline;
 }
 
-/* -------- Кнопка -------- */
+/* -------- Кнопки -------- */
 
 .button {
   display: inline-block;
@@ -149,6 +158,10 @@ footer {
   cursor: not-allowed;
 }
 
+footer {
+  background-color: var(--color-surface);
+}
+
 
 /* ===============================
    4. Компоненты страницы
@@ -171,13 +184,25 @@ footer {
   margin-top: 0;
 }
 
+/* -------- Сетка карточек (Flexbox) -------- */
+
+.product-list {
+  display: flex;               /* Карточки в ряд */
+  flex-wrap: wrap;             /* Перенос, если не помещаются */
+  gap: var(--space-md);        /* Отступ между карточками */
+  align-items: stretch;        /* Одинаковая высота */
+}
+
 .product-card {
-  margin-bottom: var(--space-md);
+  flex: 1 1 280px;             /* Гибкая ширина, минимум 280px */
+  margin-bottom: 0;
   padding: var(--space-md);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background-color: var(--color-bg);
   transition: border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;      /* Элементы внутри карточки в столбик */
 }
 
 .product-card:hover {
@@ -189,7 +214,8 @@ footer {
 }
 
 .product-card__button {
-  margin-top: var(--space-sm);
+  margin-top: auto;            /* Кнопка внизу карточки */
+  align-self: flex-start;      /* Не растягивается на всю ширину */
 }
 
 .aside-info {
@@ -246,8 +272,6 @@ footer {
   color: var(--color-muted);
 }
 
-/* -------- Состояния полей формы -------- */
-
 .form-field input:hover,
 .form-field select:hover,
 .form-field textarea:hover {
@@ -265,8 +289,6 @@ footer {
 [aria-invalid="true"] {
   border-color: var(--color-danger);
 }
-
-/* -------- Кнопки формы -------- */
 
 .form-actions {
   display: flex;
@@ -299,8 +321,6 @@ footer {
   opacity: 0.6;
   cursor: not-allowed;
 }
-
-/* -------- Сообщение об успешной отправке -------- */
 
 .success-message {
   max-width: var(--container-width);
