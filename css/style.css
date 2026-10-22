@@ -1,9 +1,7 @@
 /* ===============================
    1. Переменные проекта
    =============================== */
-
 :root {
-  /* Основные цвета проекта */
   --color-bg: #ffffff;
   --color-text: #222222;
   --color-muted: #666666;
@@ -17,27 +15,22 @@
   --color-success-bg: #eefaf0;
   --color-white: #ffffff;
 
-  /* Отступы */
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
   --space-lg: 24px;
   --space-xl: 32px;
 
-  /* Скругления */
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
 
-  /* Размеры */
   --container-width: 1100px;
 }
-
 
 /* ===============================
    2. Базовые стили
    =============================== */
-
 * {
   box-sizing: border-box;
 }
@@ -60,11 +53,9 @@ section {
   margin-bottom: var(--space-lg);
 }
 
-
 /* ===============================
    3. Общие элементы интерфейса
    =============================== */
-
 a {
   color: var(--color-primary);
 }
@@ -78,22 +69,21 @@ a:focus-visible {
   outline-offset: 3px;
 }
 
-/* -------- Шапка и меню -------- */
-
+/* Шапка и меню */
 header {
   background-color: var(--color-surface);
-  position: sticky;        /* Закрепляем шапку */
-  top: 0;                  /* Прилипает к верху */
-  z-index: 100;            /* Поверх контента */
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .site-header {
   max-width: var(--container-width);
   margin: 0 auto;
-  display: flex;               /* Логотип и меню в ряд */
-  align-items: center;         /* Выравнивание по центру по вертикали */
-  justify-content: space-between; /* Логотип слева, меню справа */
-  flex-wrap: wrap;             /* Перенос на узких экранах */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: var(--space-md);
 }
 
@@ -105,11 +95,13 @@ header {
 
 .site-nav__list {
   padding: 0;
-  margin: 0;
+  margin: var(--space-md) 0 0;
   list-style: none;
-  display: flex;              /* Горизонтальное меню */
-  flex-wrap: wrap;            /* Перенос пунктов на узких экранах */
-  gap: var(--space-md);       /* Отступ между пунктами */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-md);
 }
 
 .site-nav__list li {
@@ -125,8 +117,7 @@ header {
   text-decoration: underline;
 }
 
-/* -------- Кнопки -------- */
-
+/* Кнопки */
 .button {
   display: inline-block;
   padding: var(--space-sm) var(--space-md);
@@ -162,11 +153,9 @@ footer {
   background-color: var(--color-surface);
 }
 
-
 /* ===============================
    4. Компоненты страницы
    =============================== */
-
 .hero {
   max-width: var(--container-width);
   margin: 0 auto var(--space-xl);
@@ -184,25 +173,23 @@ footer {
   margin-top: 0;
 }
 
-/* -------- Сетка карточек (Flexbox) -------- */
-
-.product-list {
-  display: flex;               /* Карточки в ряд */
-  flex-wrap: wrap;             /* Перенос, если не помещаются */
-  gap: var(--space-md);        /* Отступ между карточками */
-  align-items: stretch;        /* Одинаковая высота */
+/* Сетка карточек товаров */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
 }
 
 .product-card {
-  flex: 1 1 280px;             /* Гибкая ширина, минимум 280px */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
   margin-bottom: 0;
   padding: var(--space-md);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background-color: var(--color-bg);
   transition: border-color 0.2s ease;
-  display: flex;
-  flex-direction: column;      /* Элементы внутри карточки в столбик */
 }
 
 .product-card:hover {
@@ -213,10 +200,60 @@ footer {
   margin-top: 0;
 }
 
-.product-card__button {
-  margin-top: auto;            /* Кнопка внизу карточки */
-  align-self: flex-start;      /* Не растягивается на всю ширину */
+.product-card .button {
+  margin-top: auto;
+  align-self: flex-start;
 }
+
+/* --- СТИЛИ ДЛЯ КАТАЛОГА (НОВОЕ) --- */
+.catalog-layout {
+  max-width: var(--container-width);
+  margin: 0 auto var(--space-xl);
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-areas: "filters products";
+  gap: var(--space-lg);
+  align-items: start; /* Чтобы фильтры не растягивались на всю высоту */
+}
+
+.catalog-filters {
+  grid-area: filters;
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+}
+
+.catalog-products {
+  grid-area: products;
+}
+
+/* Стили для формы фильтров */
+.filters-form fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 var(--space-md) 0;
+}
+
+.filters-form legend {
+  font-weight: bold;
+  margin-bottom: var(--space-sm);
+}
+
+.filters-form label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  cursor: pointer;
+}
+
+.filters-form input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+/* --- КОНЕЦ СТИЛЕЙ ДЛЯ КАТАЛОГА --- */
 
 .aside-info {
   max-width: var(--container-width);
@@ -226,11 +263,9 @@ footer {
   background-color: var(--color-surface);
 }
 
-
 /* ===============================
    5. Форма и модальное окно
    =============================== */
-
 .order-dialog {
   width: min(100% - 32px, 560px);
   padding: var(--space-lg);
@@ -329,25 +364,31 @@ footer {
   border-left: 4px solid var(--color-success);
   background-color: var(--color-success-bg);
 }
-.breadcrumbs {
-  max-width: var(--container-width);
-  margin: 0 auto var(--space-md);
-  font-size: 14px;
-  color: var(--color-muted);
+.filters-form {
+  display: grid;
+  gap: var(--space-md);
 }
 
-.breadcrumbs a {
-  color: var(--color-primary);
+.filters-form fieldset {
+  margin: 0;
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
 }
 
-.breadcrumbs span::before {
-  content: " / ";
-  color: var(--color-muted);
+.filters-form legend {
+  font-weight: 700;
 }
-html {
-  scroll-behavior: smooth;
+
+.filters-form label {
+  display: block;
+  margin-bottom: var(--space-sm);
 }
-:target {
-  outline: 2px dashed var(--color-primary);
-  outline-offset: 4px;
+
+.filters-form input[type="number"] {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font: inherit;
 }
