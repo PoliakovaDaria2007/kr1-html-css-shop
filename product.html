@@ -35,16 +35,20 @@
         <section class="product-detail">
             <h1>Товар 1</h1>
             <div class="product-detail__content">
-                <div class="product-detail__image" style="background: #eee; padding: 20px; text-align: center; border-radius: 8px;">
-                    <p>Изображение товара</p>
+                
+                <!-- Блок с картинкой (ИСПРАВЛЕНО) -->
+                <div class="product-detail__image">
+                    <img src="images/product.png" alt="Товар 1" style="width: 100%; border-radius: 8px;">
                 </div>
+
                 <div class="product-detail__info">
                     <p class="product-card__price">Цена: 1000 руб.</p>
                     <p>Краткое описание.</p>
-                    <button class="button button--primary product-card__button" type="button" data-product="Товар 1">Заказать</button>
+                    
+                    <button class="button button--primary" type="button" data-product="Товар 1">Заказать</button>
                     
                     <h2>Характеристики</h2>
-                    <!-- НОВАЯ ТАБЛИЦА ПО МЕТОДИЧКЕ (Этап 8) -->
+                    <!-- Таблица по методичке (Этап 8) -->
                     <table class="product-table">
                         <caption>Характеристики товара</caption>
                         <thead>
@@ -78,17 +82,38 @@
     </footer>
     <a href="#" class="btn-up" aria-label="Наверх">↑</a>
 
-    <!-- МОДАЛЬНОЕ ОКНО (Копия) -->
+    <!-- Модальное окно с полной формой -->
     <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
         <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
         <form class="order-form" id="order-form" action="#" method="post" novalidate>
             <input id="selected-product" name="selected-product" type="hidden">
-            <div class="order-form__field"><label class="order-form__label" for="order-name">Имя</label><input class="order-form__input" id="order-name" name="name" type="text" required></div>
-            <div class="order-form__field"><label class="order-form__label" for="order-email">E-mail</label><input class="order-form__input" id="order-email" name="email" type="email" required></div>
-            <div class="order-form__field"><label class="order-form__label" for="order-phone">Телефон</label><input class="order-form__input" id="order-phone" name="phone" type="tel" required></div>
-            <div class="order-form__field"><label class="order-form__label" for="order-topic">Тема</label><select class="order-form__select" id="order-topic" name="topic" required><option value="">Выберите</option><option value="product">Заказ</option></select></div>
-            <div class="order-form__field"><label class="order-form__label" for="order-comment">Комментарий</label><textarea class="order-form__textarea" id="order-comment" name="comment" rows="2"></textarea></div>
-            <div class="order-form__field"><label><input type="checkbox" id="order-agreement" name="agreement" required> Согласие</label></div>
+            
+            <div class="order-form__field">
+                <label class="order-form__label" for="order-name">Имя</label>
+                <input class="order-form__input" id="order-name" name="name" type="text" required>
+            </div>
+            <div class="order-form__field">
+                <label class="order-form__label" for="order-email">E-mail</label>
+                <input class="order-form__input" id="order-email" name="email" type="email" required>
+            </div>
+            <div class="order-form__field">
+                <label class="order-form__label" for="order-phone">Телефон</label>
+                <input class="order-form__input" id="order-phone" name="phone" type="tel" required>
+            </div>
+            <div class="order-form__field">
+                <label class="order-form__label" for="order-topic">Тема</label>
+                <select class="order-form__select" id="order-topic" name="topic" required>
+                    <option value="">Выберите</option>
+                    <option value="product">Заказ</option>
+                </select>
+            </div>
+            <div class="order-form__field">
+                <label class="order-form__label" for="order-comment">Комментарий</label>
+                <textarea class="order-form__textarea" id="order-comment" name="comment" rows="2"></textarea>
+            </div>
+            <div class="order-form__field">
+                <label><input type="checkbox" id="order-agreement" name="agreement" required> Согласие</label>
+            </div>
             <div class="order-form__actions">
                 <button class="button button--secondary" type="button" id="close-order-dialog">Закрыть</button>
                 <button class="button button--primary" type="submit">Отправить</button>
