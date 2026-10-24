@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа — ShopProject</title>
+    <meta name="description" content="Страница оформления заказа.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-header__logo" href="index.html">ShopProject</a>
+            <nav class="site-nav" aria-label="Основная навигация">
+                <ul class="site-nav__list">
+                    <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="product.html">Товар</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="order.html">Заказ</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="index.html#advantages">Преимущества</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="index.html#popular">Популярные</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" style="max-width: 600px;">
+            <h1>Оформление заказа</h1>
+            <!-- ПОЛНАЯ ФОРМА (Этап 9) -->
+            <form class="order-form" action="#" method="post">
+                <div class="order-form__field">
+                    <label class="order-form__label" for="order-name-page">Ваше имя</label>
+                    <input class="order-form__input" id="order-name-page" name="name" type="text" required>
+                </div>
+                <div class="order-form__field">
+                    <label class="order-form__label" for="order-email-page">E-mail</label>
+                    <input class="order-form__input" id="order-email-page" name="email" type="email" required>
+                </div>
+                <div class="order-form__field">
+                    <label class="order-form__label" for="order-phone-page">Телефон</label>
+                    <input class="order-form__input" id="order-phone-page" name="phone" type="tel" required>
+                </div>
+                <div class="order-form__field">
+                    <label class="order-form__label" for="order-topic-page">Тема заявки</label>
+                    <select class="order-form__select" id="order-topic-page" name="topic" required>
+                        <option value="">Выберите тему</option>
+                        <option value="product">Заказ товара</option>
+                        <option value="consultation">Консультация</option>
+                    </select>
+                </div>
+                <div class="order-form__field">
+                    <label class="order-form__label" for="order-comment-page">Комментарий</label>
+                    <textarea class="order-form__textarea" id="order-comment-page" name="comment" rows="3"></textarea>
+                </div>
+                <div class="order-form__field">
+                    <label><input type="checkbox" id="order-agreement-page" name="agreement" required> Я согласен на обработку данных</label>
+                </div>
+                <button class="button button--primary" type="submit">Отправить</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="contacts">
+        <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+    </footer>
+    <a href="#" class="btn-up" aria-label="Наверх">↑</a>
+</body>
+</html>
