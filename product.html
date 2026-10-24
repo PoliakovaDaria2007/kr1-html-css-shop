@@ -35,18 +35,20 @@
         <section class="product-detail">
             <h1>Товар 1</h1>
             <div class="product-detail__content">
-                <div class="product-detail__image" style="background: #eee; padding: 20px; text-align: center; border-radius: 8px;">
-                    <p>Изображение товара</p>
+                
+                <!-- Блок с картинкой -->
+                <div class="product-detail__image">
+                    <img src="images/product.png" alt="Товар 1" style="width: 100%; border-radius: 8px;">
                 </div>
+
                 <div class="product-detail__info">
                     <p class="product-card__price">Цена: 1000 руб.</p>
                     <p>Краткое описание.</p>
                     
-                    <!-- Убрали product-card__button, оставили только button и button--primary -->
                     <button class="button button--primary" type="button" data-product="Товар 1">Заказать</button>
                     
                     <h2>Характеристики</h2>
-                    <!-- ТАБЛИЦА ПО МЕТОДИЧКЕ (Этап 8) -->
+                    <!-- Таблица по методичке (Этап 8) -->
                     <table class="product-table">
                         <caption>Характеристики товара</caption>
                         <thead>
@@ -80,11 +82,12 @@
     </footer>
     <a href="#" class="btn-up" aria-label="Наверх">↑</a>
 
-    <!-- МОДАЛЬНОЕ ОКНО (Полная форма) -->
+    <!-- Модальное окно с полной формой -->
     <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
         <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
         <form class="order-form" id="order-form" action="#" method="post" novalidate>
             <input id="selected-product" name="selected-product" type="hidden">
+            
             <div class="order-form__field">
                 <label class="order-form__label" for="order-name">Имя</label>
                 <input class="order-form__input" id="order-name" name="name" type="text" required>
