@@ -3,68 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Каталог товаров — ShopProject</title>
+    <title>Каталог — ShopProject</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js" defer></script>
 </head>
 <body>
 
-    <!-- Шапка (такая же, как на главной) -->
-    <header>
-        <div class="site-header">
-            <a class="site-logo" href="index.html">ShopProject</a>
+    <!-- Шапка сайта -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-header__logo" href="index.html">ShopProject</a>
 
             <nav class="site-nav" aria-label="Основная навигация">
                 <ul class="site-nav__list">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="catalog.html">Каталог</a></li>
-                    <li><a href="contacts.html">Контакты</a></li>
-                    <li><a href="index.html#advantages">Преимущества</a></li>
-                    <li><a href="index.html#popular">Популярные товары</a></li>
-                    <li><a href="index.html#contacts">Обратная связь</a></li>
+                    <li class="site-nav__item">
+                        <a class="site-nav__link" href="index.html">Главная</a>
+                    </li>
+                    <li class="site-nav__item">
+                        <a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a>
+                    </li>
+                    <li class="site-nav__item">
+                        <a class="site-nav__link" href="contacts.html">Контакты</a>
+                    </li>
+                    <li class="site-nav__item">
+                        <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- Хлебные крошки -->
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="index.html">Главная</a>
+        <span class="breadcrumbs__current">Каталог</span>
+    </nav>
+
     <main>
-        <!-- Блок с фильтрами и товарами (Этап 6) -->
+        <!-- Блок с фильтрами и товарами -->
         <section class="catalog-layout">
             
             <!-- Левая колонка: Фильтры -->
             <aside class="catalog-filters">
                 <h2>Фильтры</h2>
-
                 <form class="filters-form" action="#" method="get">
                     <fieldset>
                         <legend>Категория</legend>
-
-                        <label>
-                            <input type="checkbox" name="category" value="all">
-                            Все товары
-                        </label>
-
-                        <label>
-                            <input type="checkbox" name="category" value="popular">
-                            Популярные
-                        </label>
-
-                        <label>
-                            <input type="checkbox" name="category" value="new">
-                            Новинки
-                        </label>
+                        <label><input type="checkbox" name="category" value="all"> Все товары</label>
+                        <label><input type="checkbox" name="category" value="popular"> Популярные</label>
+                        <label><input type="checkbox" name="category" value="new"> Новинки</label>
                     </fieldset>
-
                     <fieldset>
                         <legend>Цена</legend>
-
                         <label for="price-from">От</label>
                         <input id="price-from" name="price-from" type="number" min="0" placeholder="0">
-
                         <label for="price-to">До</label>
                         <input id="price-to" name="price-to" type="number" min="0" placeholder="5000">
                     </fieldset>
-
                     <button class="button" type="submit">Применить</button>
                 </form>
             </aside>
@@ -72,27 +67,25 @@
             <!-- Правая колонка: Список товаров -->
             <section class="catalog-products">
                 <h2>Список товаров</h2>
-
                 <div class="products-grid">
-                    <!-- Карточки товаров (пока пустые, заполним позже) -->
                     <article class="product-card">
-                        <h3>Товар 1</h3>
-                        <p>Краткое описание учебного товара.</p>
-                        <p>Цена: 1000 руб.</p>
+                        <h3 class="product-card__title">Товар 1</h3>
+                        <p class="product-card__description">Краткое описание учебного товара.</p>
+                        <p class="product-card__price">Цена: 1000 руб.</p>
                         <button class="button product-card__button" type="button" data-product="Товар 1">Заказать</button>
                     </article>
 
                     <article class="product-card">
-                        <h3>Товар 2</h3>
-                        <p>Краткое описание учебного товара.</p>
-                        <p>Цена: 1500 руб.</p>
+                        <h3 class="product-card__title">Товар 2</h3>
+                        <p class="product-card__description">Краткое описание учебного товара.</p>
+                        <p class="product-card__price">Цена: 1500 руб.</p>
                         <button class="button product-card__button" type="button" data-product="Товар 2">Заказать</button>
                     </article>
-                    
+
                     <article class="product-card">
-                        <h3>Товар 3</h3>
-                        <p>Краткое описание учебного товара.</p>
-                        <p>Цена: 2000 руб.</p>
+                        <h3 class="product-card__title">Товар 3</h3>
+                        <p class="product-card__description">Краткое описание учебного товара.</p>
+                        <p class="product-card__price">Цена: 2000 руб.</p>
                         <button class="button product-card__button" type="button" data-product="Товар 3">Заказать</button>
                     </article>
                 </div>
@@ -101,15 +94,30 @@
         </section>
     </main>
 
-    <!-- Подвал (такой же, как на главной) -->
-    <footer id="contacts">
+    <!-- Подвал -->
+    <footer class="site-footer" id="contacts">
         <p>&copy; 2026 Учебный проект. Все права защищены.</p>
         <p>Дисциплина: фронтенд и бэкенд разработка</p>
     </footer>
 
-    <!-- Модальное окно (если оно нужно на странице каталога) -->
+    <!-- Модальное окно с формой заказа (если нужно на этой странице) -->
     <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
-        <!-- ... код формы из index.html ... -->
+        <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
+        <form class="order-form" id="order-form" action="#" method="post" novalidate>
+            <input id="selected-product" name="selected-product" type="hidden">
+            <div class="order-form__field">
+                <label class="order-form__label" for="order-name">Имя</label>
+                <input class="order-form__input" id="order-name" name="name" type="text" placeholder="Введите ваше имя" minlength="2" required>
+            </div>
+            <div class="order-form__field">
+                <label class="order-form__label" for="order-email">E-mail</label>
+                <input class="order-form__input" id="order-email" name="email" type="email" placeholder="example@mail.ru" required>
+            </div>
+            <div class="order-form__actions">
+                <button class="button button--secondary" type="button" id="close-order-dialog">Закрыть</button>
+                <button class="button button--primary" type="submit">Отправить заявку</button>
+            </div>
+        </form>
     </dialog>
 
 </body>
