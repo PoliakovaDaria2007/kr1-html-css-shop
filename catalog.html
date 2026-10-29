@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Каталог — ShopProject</title>
-    <meta name="description" content="Каталог товаров.">
+    <meta name="description" content="Каталог товаров учебного интернет-магазина.">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js" defer></script>
 </head>
@@ -33,12 +33,22 @@
 
     <main>
         <section class="catalog-layout">
+            <!-- Sticky-фильтры -->
             <aside class="catalog-filters">
                 <h2>Фильтры</h2>
                 <form class="filters-form" action="#" method="get">
                     <fieldset>
                         <legend>Категория</legend>
                         <label><input type="checkbox" name="category" value="all"> Все товары</label>
+                        <label><input type="checkbox" name="category" value="popular"> Популярные</label>
+                        <label><input type="checkbox" name="category" value="new"> Новинки</label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Цена</legend>
+                        <label for="price-from">От</label>
+                        <input id="price-from" name="price-from" type="number" min="0" placeholder="0">
+                        <label for="price-to">До</label>
+                        <input id="price-to" name="price-to" type="number" min="0" placeholder="5000">
                     </fieldset>
                     <button class="button button--primary" type="submit">Применить</button>
                 </form>
@@ -47,6 +57,7 @@
             <section class="catalog-products">
                 <h2>Список товаров</h2>
                 <div class="products-grid">
+                    <!-- Товар 1 -->
                     <article class="product-card">
                         <span class="product-card__badge">Хит</span>
                         <h3 class="product-card__title"><a href="product.html">Товар 1</a></h3>
@@ -57,6 +68,7 @@
                             <button class="button button--primary product-card__button" type="button" data-product="Товар 1">Заказать</button>
                         </div>
                     </article>
+                    <!-- Товар 2 -->
                     <article class="product-card">
                         <h3 class="product-card__title"><a href="product.html">Товар 2</a></h3>
                         <p class="product-card__description">Краткое описание.</p>
@@ -66,6 +78,7 @@
                             <button class="button button--primary product-card__button" type="button" data-product="Товар 2">Заказать</button>
                         </div>
                     </article>
+                    <!-- Товар 3 -->
                     <article class="product-card product-card--discount">
                         <span class="product-card__badge">Скидка</span>
                         <h3 class="product-card__title"><a href="product.html">Товар 3</a></h3>
@@ -74,6 +87,68 @@
                         <div class="product-card__actions">
                             <a class="button button--secondary product-card__button" href="product.html">Подробнее</a>
                             <button class="button button--primary product-card__button" type="button" data-product="Товар 3">Заказать</button>
+                        </div>
+                    </article>
+                    <!-- Товар 4 -->
+                    <article class="product-card">
+                        <h3 class="product-card__title"><a href="product.html">Товар 4</a></h3>
+                        <p class="product-card__description">Краткое описание.</p>
+                        <p class="product-card__price">Цена: 2500 руб.</p>
+                        <div class="product-card__actions">
+                            <a class="button button--secondary product-card__button" href="product.html">Подробнее</a>
+                            <button class="button button--primary product-card__button" type="button" data-product="Товар 4">Заказать</button>
+                        </div>
+                    </article>
+                    <!-- Товар 5 -->
+                    <article class="product-card">
+                        <h3 class="product-card__title"><a href="product.html">Товар 5</a></h3>
+                        <p class="product-card__description">Краткое описание.</p>
+                        <p class="product-card__price">Цена: 3000 руб.</p>
+                        <div class="product-card__actions">
+                            <a class="button button--secondary product-card__button" href="product.html">Подробнее</a>
+                            <button class="button button--primary product-card__button" type="button" data-product="Товар 5">Заказать</button>
+                        </div>
+                    </article>
+                    <!-- Товар 6 -->
+                    <article class="product-card">
+                        <span class="product-card__badge">Новинка</span>
+                        <h3 class="product-card__title"><a href="product.html">Товар 6</a></h3>
+                        <p class="product-card__description">Краткое описание.</p>
+                        <p class="product-card__price">Цена: 3500 руб.</p>
+                        <div class="product-card__actions">
+                            <a class="button button--secondary product-card__button" href="product.html">Подробнее</a>
+                            <button class="button button--primary product-card__button" type="button" data-product="Товар 6">Заказать</button>
+                        </div>
+                    </article>
+                    <!-- Товар 7 -->
+                    <article class="product-card">
+                        <h3 class="product-card__title"><a href="product.html">Товар 7</a></h3>
+                        <p class="product-card__description">Краткое описание.</p>
+                        <p class="product-card__price">Цена: 4000 руб.</p>
+                        <div class="product-card__actions">
+                            <a class="button button--secondary product-card__button" href="product.html">Подробнее</a>
+                            <button class="button button--primary product-card__button" type="button" data-product="Товар 7">Заказать</button>
+                        </div>
+                    </article>
+                    <!-- Товар 8 -->
+                    <article class="product-card product-card--discount">
+                        <span class="product-card__badge">Скидка</span>
+                        <h3 class="product-card__title"><a href="product.html">Товар 8</a></h3>
+                        <p class="product-card__description">Краткое описание.</p>
+                        <p class="product-card__price">Цена: 4500 руб.</p>
+                        <div class="product-card__actions">
+                            <a class="button button--secondary product-card__button" href="product.html">Подробнее</a>
+                            <button class="button button--primary product-card__button" type="button" data-product="Товар 8">Заказать</button>
+                        </div>
+                    </article>
+                    <!-- Товар 9 -->
+                    <article class="product-card">
+                        <h3 class="product-card__title"><a href="product.html">Товар 9</a></h3>
+                        <p class="product-card__description">Краткое описание.</p>
+                        <p class="product-card__price">Цена: 5000 руб.</p>
+                        <div class="product-card__actions">
+                            <a class="button button--secondary product-card__button" href="product.html">Подробнее</a>
+                            <button class="button button--primary product-card__button" type="button" data-product="Товар 9">Заказать</button>
                         </div>
                     </article>
                 </div>
@@ -86,7 +161,7 @@
     </footer>
     <a href="#" class="btn-up" aria-label="Наверх">↑</a>
 
-    <!-- МОДАЛЬНОЕ ОКНО (Копия из index.html) -->
+    <!-- Модальное окно -->
     <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
         <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
         <form class="order-form" id="order-form" action="#" method="post" novalidate>
