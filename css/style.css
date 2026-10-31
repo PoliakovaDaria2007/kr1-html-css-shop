@@ -15,6 +15,7 @@
   --color-success: #168a2f;
   --color-success-bg: #eefaf0;
   --color-white: #ffffff;
+  --color-rating: #f5a623;
 
   --space-xs: 4px;
   --space-sm: 8px;
@@ -460,9 +461,22 @@ footer {
   margin-bottom: var(--space-sm);
 }
 
+.reviews__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xs);
+}
+
 .reviews__author {
   font-weight: bold;
-  margin: 0 0 var(--space-xs) 0;
+  margin: 0;
+}
+
+.reviews__rating {
+  color: var(--color-rating);
+  font-size: 16px;
+  letter-spacing: 2px;
 }
 
 .reviews__text {
@@ -485,11 +499,28 @@ footer {
   font-weight: bold;
   cursor: pointer;
   color: var(--color-primary);
+  padding: var(--space-xs) 0;
 }
 
 .faq__answer {
   margin-top: var(--space-sm);
   color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* Стили для списков внутри ответов FAQ */
+.faq__answer ol,
+.faq__answer ul {
+  padding-left: var(--space-lg);
+  margin: var(--space-sm) 0;
+}
+
+.faq__answer li {
+  margin-bottom: var(--space-xs);
+}
+
+.faq__answer p {
+  margin: var(--space-xs) 0;
 }
 
 
