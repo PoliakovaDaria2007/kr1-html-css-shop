@@ -1,37 +1,45 @@
 /* ===============================
-   1. Переменные проекта
+   1. Переменные проекта (Стиль «Леонардо»)
    =============================== */
 
 :root {
   /* Фоны */
-  --color-bg: #F8F5F2;          /* Теплый светлый фон страницы */
+  --color-bg: #f5d0bc;          /* Тёплый персиково-бежевый фон */
   --color-surface: #ffffff;     /* Белый для карточек */
-  --color-text: #2B2B2B;        /* Темный текст */
+  --color-text: #2B2B2B;        /* Тёмный текст */
   --color-muted: #6B6B6B;       
   
-  /* Основной терракотовый цвет */
-  --color-primary: #C05C3E;     /* Терракота (шапка, акценты) */
-  --color-primary-dark: #9E3E22;/* Темнее для ховера */
+  /* Основной терракотовый цвет (Шапка, меню, акценты) */
+  --color-primary: #C05C3E;     
+  --color-primary-dark: #9E3E22;
   
-  /* Синий акцент (кнопки) */
+  /* Синий акцент (Кнопки, ссылки) */
   --color-secondary: #0056A6;   
   --color-secondary-dark: #003D7A;
   
-  --color-gold: #F4B41A;        /* Золотой (бейджи) */
-  --color-border: #E0DCD7;      /* Теплая светлая рамка */
+  --color-gold: #F4B41A;        
+  --color-border: #e8c6b4;      /* Рамка под цвет фона, но чуть темнее */
   --color-white: #ffffff;
   
+  /* Статусы */
+  --color-danger: #d9534f;
+  --color-success: #5cb85c;
+  --color-success-bg: #eefaf0;
+  --color-rating: #F4B41A;
 
+  /* Отступы */
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
   --space-lg: 24px;
   --space-xl: 32px;
 
+  /* Скругления */
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
 
+  /* Размеры */
   --container-width: 1100px;
 }
 
@@ -50,9 +58,18 @@ body {
   line-height: 1.5;
   color: var(--color-text);
   background-color: var(--color-bg);
+  
+  /* Прижимаем футер к низу */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-main,
+main {
+  flex-grow: 1;
+  padding: var(--space-lg);
+}
+
 footer {
   padding: var(--space-lg);
 }
@@ -67,25 +84,29 @@ section {
    =============================== */
 
 a {
-  color: var(--color-primary);
+  color: var(--color-secondary);
+  text-decoration: none;
 }
 
 a:hover {
-  color: var(--color-primary-dark);
+  color: var(--color-secondary-dark);
+  text-decoration: underline;
 }
 
 a:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-secondary);
   outline-offset: 3px;
 }
 
-/* -------- Шапка и меню (БЭМ) -------- */
+/* -------- Шапка и меню -------- */
 
 .site-header {
-  background-color: var(--color-surface);
+  background-color: var(--color-primary); /* Терракота */
+  color: var(--color-white);
   position: sticky;
   top: 0;
   z-index: 100;
+  border-bottom: 1px solid var(--color-primary-dark);
 }
 
 .site-header__inner {
@@ -96,8 +117,9 @@ a:focus-visible {
 
 .site-header__logo {
   font-weight: 700;
-  color: var(--color-text);
+  color: var(--color-white); /* Белый логотип */
   text-decoration: none;
+  font-size: 1.2rem;
 }
 
 .site-nav__list {
@@ -114,7 +136,7 @@ a:focus-visible {
 .site-nav__link {
   display: inline-block;
   padding: var(--space-sm) var(--space-md);
-  color: var(--color-primary);
+  color: var(--color-white); /* Белые ссылки */
   text-decoration: none;
   border-radius: var(--radius-sm);
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -122,22 +144,21 @@ a:focus-visible {
 
 .site-nav__link:hover {
   color: var(--color-white);
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-dark);
+  text-decoration: none;
 }
 
 .site-nav__link:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-white);
   outline-offset: 3px;
 }
 
 .site-nav__link--active {
   color: var(--color-white);
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-dark);
 }
 
-/* =========================================
-   Блок Кнопки
-   ========================================= */
+/* -------- Кнопки -------- */
 
 .button {
   display: inline-block;
@@ -155,7 +176,7 @@ a:focus-visible {
 }
 
 .button:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-secondary);
   outline-offset: 3px;
 }
 
@@ -167,25 +188,28 @@ a:focus-visible {
 
 .button--primary {
   color: var(--color-white);
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary); /* Синяя кнопка */
 }
 
 .button--primary:hover {
-  background-color: var(--color-primary-dark);
+  background-color: var(--color-secondary-dark);
+  text-decoration: none;
 }
 
 .button--secondary {
-  color: var(--color-primary);
+  color: var(--color-secondary);
   background-color: transparent;
-  border: 1px solid var(--color-primary);
+  border: 1px solid var(--color-secondary);
 }
 
 .button--secondary:hover {
   color: var(--color-white);
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary);
+  text-decoration: none;
 }
 
-/* -------- Кнопка "Наверх" (position: fixed) -------- */
+/* -------- Кнопка "Наверх" -------- */
+
 .btn-up {
   position: fixed;
   bottom: var(--space-lg);
@@ -197,7 +221,7 @@ a:focus-visible {
   justify-content: center;
   font-size: 24px;
   color: var(--color-white);
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary);
   border-radius: 50%;
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -206,11 +230,14 @@ a:focus-visible {
 }
 
 .btn-up:hover {
-  background-color: var(--color-primary-dark);
+  background-color: var(--color-secondary-dark);
+  text-decoration: none;
 }
 
 footer {
   background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
 }
 
 
@@ -222,8 +249,14 @@ footer {
   max-width: var(--container-width);
   margin: 0 auto var(--space-xl);
   padding: var(--space-xl) var(--space-lg);
-  background-color: var(--color-surface-accent);
+  background-color: var(--color-surface);
   border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.hero h1 {
+  margin-top: 0;
+  color: var(--color-text);
 }
 
 .section {
@@ -233,6 +266,9 @@ footer {
 
 .section h2 {
   margin-top: 0;
+  color: var(--color-text);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: var(--space-sm);
 }
 
 /* =========================================
@@ -247,7 +283,7 @@ footer {
 }
 
 .breadcrumbs__link {
-  color: var(--color-primary);
+  color: var(--color-secondary);
   text-decoration: none;
 }
 
@@ -280,12 +316,15 @@ footer {
   padding: var(--space-md);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  background-color: var(--color-bg);
+  background-color: var(--color-surface);
   position: relative;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
 .product-card:hover {
   border-color: var(--color-primary);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
 }
 
 .product-card--featured {
@@ -321,6 +360,7 @@ footer {
 .product-card__price {
   margin: 0;
   font-weight: 700;
+  color: var(--color-text);
 }
 
 .product-card--discount .product-card__price {
@@ -353,7 +393,6 @@ footer {
   align-items: start;
 }
 
-/* Объединенный блок фильтров со sticky */
 .catalog-filters {
   grid-area: filters;
   padding: var(--space-md);
@@ -413,7 +452,6 @@ footer {
   margin-top: var(--space-lg);
 }
 
-/* Картинка на странице товара */
 .product-detail__image img {
   width: 100%;
   height: auto;
@@ -424,7 +462,6 @@ footer {
   background-color: var(--color-surface);
 }
 
-/* Таблица характеристик */
 .product-table {
   width: 100%;
   border-collapse: collapse;
@@ -490,20 +527,20 @@ footer {
 }
 
 /* =========================================
-   FAQ (Часто задаваемые вопросы) - contacts.html
+   FAQ (Часто задаваемые вопросы)
    ========================================= */
 .faq__item {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   margin-bottom: var(--space-sm);
   padding: var(--space-sm);
-  background-color: var(--color-bg);
+  background-color: var(--color-surface);
 }
 
 .faq__question {
   font-weight: bold;
   cursor: pointer;
-  color: var(--color-primary);
+  color: var(--color-secondary);
   padding: var(--space-xs) 0;
 }
 
@@ -513,7 +550,6 @@ footer {
   line-height: 1.6;
 }
 
-/* Стили для списков внутри ответов FAQ */
 .faq__answer ol,
 .faq__answer ul {
   padding-left: var(--space-lg);
@@ -538,6 +574,7 @@ footer {
   padding: var(--space-lg);
   border: none;
   border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
 }
 
 .order-dialog::backdrop {
@@ -546,6 +583,7 @@ footer {
 
 .order-dialog__title {
   margin-top: 0;
+  color: var(--color-primary);
 }
 
 .order-form__field {
@@ -576,7 +614,7 @@ footer {
 .order-form__input:focus-visible,
 .order-form__select:focus-visible,
 .order-form__textarea:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-secondary);
   outline-offset: 3px;
 }
 
