@@ -16,7 +16,6 @@
                 <ul class="site-nav__list">
                     <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
                     <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a></li>
-                    <li class="site-nav__item"><a class="site-nav__link" href="product.html">Товар</a></li>
                     <li class="site-nav__item"><a class="site-nav__link" href="order.html">Заказ</a></li>
                     <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
                     <li class="site-nav__item"><a class="site-nav__link" href="index.html#advantages">Преимущества</a></li>
@@ -32,127 +31,74 @@
     </nav>
 
     <main>
-        <section class="catalog-layout">
-            <!-- Sticky-фильтры -->
-            <aside class="catalog-filters">
-                <h2>Фильтры</h2>
-                <form class="filters-form" action="#" method="get">
-                    <fieldset>
-                        <legend>Категория</legend>
-                        <label><input type="checkbox" name="category" value="all"> Все товары</label>
-                        <label><input type="checkbox" name="category" value="popular"> Популярные</label>
-                        <label><input type="checkbox" name="category" value="new"> Новинки</label>
-                    </fieldset>
-                    <fieldset>
-                        <legend>Цена</legend>
-                        <label for="price-from">От</label>
-                        <input id="price-from" name="price-from" type="number" min="0" placeholder="0">
-                        <label for="price-to">До</label>
-                        <input id="price-to" name="price-to" type="number" min="0" placeholder="5000">
-                    </fieldset>
-                    <button class="button button--primary" type="submit">Применить</button>
-                </form>
-            </aside>
+        <section class="section">
+            <h2>Каталог товаров</h2>
+            <p>Выберите категорию, чтобы перейти к товарам.</p>
 
-            <section class="catalog-products">
-                <h2>Список товаров</h2>
-                <div class="products-grid">
-                    <!-- Товар 1 -->
-                    <article class="product-card">
-                        <span class="product-card__badge">Хит</span>
-                        <h3 class="product-card__title"><a href="product.html">Товар 1</a></h3>
-                        <p class="product-card__description">Краткое описание.</p>
-                        <p class="product-card__price">Цена: 1000 руб.</p>
-                        <div class="product-card__actions">
-                            <a class="button button--secondary product-card__button" href="product.html">Подробнее</a>
-                            <button class="button button--primary product-card__button" type="button" data-product="Товар 1">Заказать</button>
-                        </div>
-                    </article>
-                    <!-- Товар 2 -->
-                    <article class="product-card">
-                        <h3 class="product-card__title"><a href="product.html">Товар 2</a></h3>
-                        <p class="product-card__description">Краткое описание.</p>
-                        <p class="product-card__price">Цена: 1500 руб.</p>
-                        <div class="product-card__actions">
-                            <a class="button button--secondary product-card__button" href="product.html">Подробнее</a>
-                            <button class="button button--primary product-card__button" type="button" data-product="Товар 2">Заказать</button>
-                        </div>
-                    </article>
-                    <!-- Товар 3 -->
-                    <article class="product-card product-card--discount">
-                        <span class="product-card__badge">Скидка</span>
-                        <h3 class="product-card__title"><a href="product.html">Товар 3</a></h3>
-                        <p class="product-card__description">Краткое описание.</p>
-                        <p class="product-card__price">Цена: 2000 руб.</p>
-                        <div class="product-card__actions">
-                            <a class="button button--secondary product-card__button" href="product.html">Подробнее</a>
-                            <button class="button button--primary product-card__button" type="button" data-product="Товар 3">Заказать</button>
-                        </div>
-                    </article>
-                    <!-- Товар 4 -->
-                    <article class="product-card">
-                        <h3 class="product-card__title"><a href="product.html">Товар 4</a></h3>
-                        <p class="product-card__description">Краткое описание.</p>
-                        <p class="product-card__price">Цена: 2500 руб.</p>
-                        <div class="product-card__actions">
-                            <a class="button button--secondary product-card__button" href="product.html">Подробнее</a>
-                            <button class="button button--primary product-card__button" type="button" data-product="Товар 4">Заказать</button>
-                        </div>
-                    </article>
-                    <!-- Товар 5 -->
-                    <article class="product-card">
-                        <h3 class="product-card__title"><a href="product.html">Товар 5</a></h3>
-                        <p class="product-card__description">Краткое описание.</p>
-                        <p class="product-card__price">Цена: 3000 руб.</p>
-                        <div class="product-card__actions">
-                            <a class="button button--secondary product-card__button" href="product.html">Подробнее</a>
-                            <button class="button button--primary product-card__button" type="button" data-product="Товар 5">Заказать</button>
-                        </div>
-                    </article>
-                    <!-- Товар 6 -->
-                    <article class="product-card">
-                        <span class="product-card__badge">Новинка</span>
-                        <h3 class="product-card__title"><a href="product.html">Товар 6</a></h3>
-                        <p class="product-card__description">Краткое описание.</p>
-                        <p class="product-card__price">Цена: 3500 руб.</p>
-                        <div class="product-card__actions">
-                            <a class="button button--secondary product-card__button" href="product.html">Подробнее</a>
-                            <button class="button button--primary product-card__button" type="button" data-product="Товар 6">Заказать</button>
-                        </div>
-                    </article>
-                    <!-- Товар 7 -->
-                    <article class="product-card">
-                        <h3 class="product-card__title"><a href="product.html">Товар 7</a></h3>
-                        <p class="product-card__description">Краткое описание.</p>
-                        <p class="product-card__price">Цена: 4000 руб.</p>
-                        <div class="product-card__actions">
-                            <a class="button button--secondary product-card__button" href="product.html">Подробнее</a>
-                            <button class="button button--primary product-card__button" type="button" data-product="Товар 7">Заказать</button>
-                        </div>
-                    </article>
-                    <!-- Товар 8 -->
-                    <article class="product-card product-card--discount">
-                        <span class="product-card__badge">Скидка</span>
-                        <h3 class="product-card__title"><a href="product.html">Товар 8</a></h3>
-                        <p class="product-card__description">Краткое описание.</p>
-                        <p class="product-card__price">Цена: 4500 руб.</p>
-                        <div class="product-card__actions">
-                            <a class="button button--secondary product-card__button" href="product.html">Подробнее</a>
-                            <button class="button button--primary product-card__button" type="button" data-product="Товар 8">Заказать</button>
-                        </div>
-                    </article>
-                    <!-- Товар 9 -->
-                    <article class="product-card">
-                        <h3 class="product-card__title"><a href="product.html">Товар 9</a></h3>
-                        <p class="product-card__description">Краткое описание.</p>
-                        <p class="product-card__price">Цена: 5000 руб.</p>
-                        <div class="product-card__actions">
-                            <a class="button button--secondary product-card__button" href="product.html">Подробнее</a>
-                            <button class="button button--primary product-card__button" type="button" data-product="Товар 9">Заказать</button>
-                        </div>
-                    </article>
-                </div>
-            </section>
+            <div class="folders-grid">
+                <!-- 1. Для художников -->
+                <a href="category-arts.html" class="folder-card">
+                    <div class="folder-card__cover folder-card__cover--artists">
+                        <span class="folder-card__label">Творчество</span>
+                    </div>
+                    <h3 class="folder-card__title">Для художников</h3>
+                    <p class="folder-card__desc">Краски, кисти, холсты и мольберты</p>
+                </a>
+
+                <!-- 2. Вязание -->
+                <a href="category-knit.html" class="folder-card">
+                    <div class="folder-card__cover folder-card__cover--knitting">
+                        <span class="folder-card__label">Хобби</span>
+                    </div>
+                    <h3 class="folder-card__title">Вязание</h3>
+                    <p class="folder-card__desc">Пряжа, спицы, крючки и аксессуары</p>
+                </a>
+
+                <!-- 3. Вышивание -->
+                <a href="category-embroidery.html" class="folder-card">
+                    <div class="folder-card__cover folder-card__cover--embroidery">
+                        <span class="folder-card__label">Рукоделие</span>
+                    </div>
+                    <h3 class="folder-card__title">Вышивание</h3>
+                    <p class="folder-card__desc">Нитки, канва, схемы и наборы</p>
+                </a>
+
+                <!-- 4. Шитьё -->
+                <a href="category-sewing.html" class="folder-card">
+                    <div class="folder-card__cover folder-card__cover--sewing">
+                        <span class="folder-card__label">Рукоделие</span>
+                    </div>
+                    <h3 class="folder-card__title">Шитьё</h3>
+                    <p class="folder-card__desc">Ткани, нитки, иглы и фурнитура</p>
+                </a>
+
+                <!-- 5. Бисероплетение -->
+                <a href="category-beadwork.html" class="folder-card">
+                    <div class="folder-card__cover folder-card__cover--beads">
+                        <span class="folder-card__label">Творчество</span>
+                    </div>
+                    <h3 class="folder-card__title">Бисероплетение</h3>
+                    <p class="folder-card__desc">Бисер, бусины, проволока и леска</p>
+                </a>
+
+                <!-- 6. Скрапбукинг -->
+                <a href="category-scrapbooking.html" class="folder-card">
+                    <div class="folder-card__cover folder-card__cover--scrap">
+                        <span class="folder-card__label">Хобби</span>
+                    </div>
+                    <h3 class="folder-card__title">Скрапбукинг</h3>
+                    <p class="folder-card__desc">Бумага, штампы, дыроколы и украшения</p>
+                </a>
+
+                <!-- 7. Лепка -->
+                <a href="category-modeling.html" class="folder-card">
+                    <div class="folder-card__cover folder-card__cover--modeling">
+                        <span class="folder-card__label">Рукоделие</span>
+                    </div>
+                    <h3 class="folder-card__title">Лепка и скульптуры</h3>
+                    <p class="folder-card__desc">Глина, пластилин, пластика и молды</p>
+                </a>
+            </div>
         </section>
     </main>
 
@@ -160,24 +106,5 @@
         <p>&copy; 2026 Учебный проект. Все права защищены.</p>
     </footer>
     <a href="#" class="btn-up" aria-label="Наверх">↑</a>
-
-    <!-- Модальное окно -->
-    <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
-        <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
-        <form class="order-form" id="order-form" action="#" method="post" novalidate>
-            <input id="selected-product" name="selected-product" type="hidden">
-            <div class="order-form__field"><label class="order-form__label" for="order-name">Имя</label><input class="order-form__input" id="order-name" name="name" type="text" required></div>
-            <div class="order-form__field"><label class="order-form__label" for="order-email">E-mail</label><input class="order-form__input" id="order-email" name="email" type="email" required></div>
-            <div class="order-form__field"><label class="order-form__label" for="order-phone">Телефон</label><input class="order-form__input" id="order-phone" name="phone" type="tel" required></div>
-            <div class="order-form__field"><label class="order-form__label" for="order-topic">Тема</label><select class="order-form__select" id="order-topic" name="topic" required><option value="">Выберите</option><option value="product">Заказ</option></select></div>
-            <div class="order-form__field"><label class="order-form__label" for="order-comment">Комментарий</label><textarea class="order-form__textarea" id="order-comment" name="comment" rows="2"></textarea></div>
-            <div class="order-form__field"><label><input type="checkbox" id="order-agreement" name="agreement" required> Согласие</label></div>
-            <div class="order-form__actions">
-                <button class="button button--secondary" type="button" id="close-order-dialog">Закрыть</button>
-                <button class="button button--primary" type="submit">Отправить</button>
-            </div>
-        </form>
-    </dialog>
-    <p class="success-message" id="success-message" hidden>Форма успешно отправлена!</p>
 </body>
 </html>

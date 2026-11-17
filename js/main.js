@@ -1,73 +1,146 @@
-// Получаем модальное окно по id.
-const orderDialog = document.getElementById('order-dialog');
+// ==========================================================
+// 1. ЛОГИКА ДЛЯ МОДАЛЬНОГО ОКНА С ПОДРОБНОСТЯМИ О ТОВАРЕ
+// ==========================================================
 
-// Получаем все кнопки заказа в карточках товаров.
-const orderButtons = document.querySelectorAll('.product-card__button');
+// Находим окно подробностей и элементы внутри него
+const productDialog = document.getElementById('product-dialog');
+const closeProductBtn = document.getElementById('close-product-dialog');
+const openOrderFromProductBtn = document.getElementById('open-order-from-product');
 
-// Получаем кнопку закрытия модального окна.
-const closeDialogButton = document.getElementById('close-order-dialog');
+// Находим все кнопки, у которых есть атрибут data-action
+const actionButtons = document.querySelectorAll('.product-card__button');
 
-// Получаем скрытое поле, в которое будет записан выбранный товар.
-const selectedProductInput = document.getElementById('selected-product');
+// Переменная для хранения текущего выбранного товара
+let currentProductTitle = '';
 
-// Перебираем все кнопки «Заказать».
-orderButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    // Получаем название товара из data-атрибута.
-    const productName = button.dataset.product;
+// Если на странице есть окно с подробностями (чтобы не было ошибок на других страницах)
+if (productDialog) {
+    actionButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const action = button.dataset.action;
 
-    // Записываем название товара в скрытое поле формы.
-    selectedProductInput.value = productName;
+            if (action === 'details') {
+                // Заполняем окно данными из data-атрибутов
+                document.getElementById('product-title').textContent = button.dataset.title;
+                document.getElementById('product-price').textContent = button.dataset.price;
+                document.getElementById('product-desc').textContent = button.dataset.desc;
+                document.getElementById('product-image').src = button.dataset.image || 'images/default.jpg';
+                
+                // Подставляем категорию и наличие (если их нет, ставим прочерк)
+                document.getElementById('product-category').textContent = button.dataset.category || '—';
+                document.getElementById('product-stock').textContent = button.dataset.stock || 'В наличии';
 
-    // Открываем модальное окно.
-    orderDialog.showModal();
-  });
-});
+                // Запоминаем название товара для формы заказа
+                currentProductTitle = button.dataset.title;
 
-// Закрываем модальное окно по кнопке «Закрыть».
-closeDialogButton.addEventListener('click', () => {
-  orderDialog.close();
-});
-// Получаем форму заявки.
-const orderForm = document.getElementById('order-form');
-
-// Получаем сообщение об успешной отправке.
-const successMessage = document.getElementById('success-message');
-
-// Обрабатываем отправку формы.
-orderForm.addEventListener('submit', (event) => {
-  // Отменяем стандартную отправку формы,
-  // потому что backend пока не подключён.
-  event.preventDefault();
-
-  // Сбрасываем предыдущие признаки ошибок.
-  const formElements = Array.from(orderForm.elements);
-
-  formElements.forEach((element) => {
-    if (element.willValidate) {
-      element.removeAttribute('aria-invalid');
-    }
-  });
-
-  // Проверяем встроенные HTML-ограничения формы.
-  if (!orderForm.checkValidity()) {
-    formElements.forEach((element) => {
-      if (element.willValidate && !element.checkValidity()) {
-        element.setAttribute('aria-invalid', 'true');
-      }
+                // Открываем окно подробностей
+                productDialog.showModal();
+            }
+        });
     });
 
-    // Показываем стандартные сообщения браузера.
-    orderForm.reportValidity();
-    return;
-  }
+    // Закрываем окно подробностей
+    if (closeProductBtn) {
+        closeProductBtn.addEventListener('click', () => {
+            productDialog.close();
+        });
+    }
 
-  // Показываем сообщение об успешной отправке.
-  successMessage.hidden = false;
+    // Переход из окна подробностей в форму заказа
+    if (openOrderFromProductBtn) {
+        openOrderFromProductBtn.addEventListener('click', () => {
+            // Закрываем окно подробностей
+            productDialog.close();
+            // Открываем форму заказа (логика ниже)
+            if (orderDialog) {
+                selectedProductInput.value = currentProductTitle;
+                orderDialog.showModal();
+            }
+        });
+    }
+}
 
-  // Очищаем форму.
-  orderForm.reset();
 
-  // Закрываем модальное окно.
-  orderDialog.close();
-});
+// ==========================================================
+// 2. СТАРАЯ ЛОГИКА ДЛЯ ФОРМЫ ЗАКАЗА (МОДАЛЬНОЕ ОКНО 2)
+// ==========================================================
+
+// Получаем модальное окно заказа
+const orderDialog = document.getElementById('order-dialog');
+
+// Получаем все кнопки заказа (с атрибутом data-action="order")
+const orderButtons = document.querySelectorAll('.product-card__button[data-action="order"]');
+
+// Получаем кнопку закрытия окна заказа
+const closeDialogButton = document.getElementById('close-order-dialog');
+
+// Получаем скрытое поле
+const selectedProductInput = document.getElementById('selected-product');
+
+// Вешаем событие на кнопки "Заказать" (сразу на карточке)
+if (orderButtons && orderDialog) {
+    orderButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            // Получаем название товара из data-атрибута
+            const productName = button.dataset.title; // Внимание: здесь data-title, а не data-product!
+
+            // Записываем название товара в скрытое поле формы.
+            selectedProductInput.value = productName;
+
+            // Открываем модальное окно.
+            orderDialog.showModal();
+        });
+    });
+}
+
+// Закрываем модальное окно по кнопке «Закрыть»
+if (closeDialogButton) {
+    closeDialogButton.addEventListener('click', () => {
+        orderDialog.close();
+    });
+}
+
+// Получаем форму заявки
+const orderForm = document.getElementById('order-form');
+
+// Получаем сообщение об успешной отправке
+const successMessage = document.getElementById('success-message');
+
+// Обрабатываем отправку формы
+if (orderForm) {
+    orderForm.addEventListener('submit', (event) => {
+        // Отменяем стандартную отправку формы
+        event.preventDefault();
+
+        // Сбрасываем предыдущие признаки ошибок
+        const formElements = Array.from(orderForm.elements);
+
+        formElements.forEach((element) => {
+            if (element.willValidate) {
+                element.removeAttribute('aria-invalid');
+            }
+        });
+
+        // Проверяем встроенные HTML-ограничения формы
+        if (!orderForm.checkValidity()) {
+            formElements.forEach((element) => {
+                if (element.willValidate && !element.checkValidity()) {
+                    element.setAttribute('aria-invalid', 'true');
+                }
+            });
+
+            // Показываем стандартные сообщения браузера
+            orderForm.reportValidity();
+            return;
+        }
+
+        // Показываем сообщение об успешной отправке
+        successMessage.hidden = false;
+
+        // Очищаем форму
+        orderForm.reset();
+
+        // Закрываем модальное окно
+        orderDialog.close();
+    });
+}
