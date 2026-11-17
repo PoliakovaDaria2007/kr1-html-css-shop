@@ -4,21 +4,21 @@
 
 :root {
   /* Фоны */
-  --color-bg: #f5d0bc;          /* Тёплый персиково-бежевый фон */
-  --color-surface: #ffffff;     /* Белый для карточек */
+  --color-bg: #f5d0bc;          /* Тёплый персиково-бежевый фон страницы */
+  --color-surface: #fbe8de;     /* Светло-персиковый для карточек (не белый) */
   --color-text: #2B2B2B;        /* Тёмный текст */
   --color-muted: #6B6B6B;       
   
-  /* Основной терракотовый цвет (Шапка, меню, акценты) */
+  /* Основной терракотовый цвет (Шапка, футер, акценты) */
   --color-primary: #C05C3E;     
   --color-primary-dark: #9E3E22;
   
-  /* Синий акцент (Кнопки, ссылки) */
+  /* Синий акцент (Кнопки) */
   --color-secondary: #0056A6;   
   --color-secondary-dark: #003D7A;
   
   --color-gold: #F4B41A;        
-  --color-border: #cfa78f; /* Рамка темнее персикового фона */
+  --color-border: #cfa78f;      /* Рамка темнее фона */
   --color-white: #ffffff;
   
   /* Статусы */
@@ -234,10 +234,22 @@ a:focus-visible {
   text-decoration: none;
 }
 
+/* -------- Футер -------- */
 footer {
-  background-color: var(--color-surface);
-  border-top: 1px solid var(--color-border);
+  background-color: var(--color-primary); /* Терракотовый футер */
+  color: var(--color-white);             /* Белый текст */
+  border-top: 1px solid var(--color-primary-dark);
   text-align: center;
+}
+
+footer a {
+  color: var(--color-white);             /* Белые ссылки в футере */
+  text-decoration: underline;
+}
+
+footer a:hover {
+  color: var(--color-white);
+  text-decoration: none;
 }
 
 
@@ -249,9 +261,9 @@ footer {
   max-width: var(--container-width);
   margin: 0 auto var(--space-xl);
   padding: var(--space-xl) var(--space-lg);
-  background-color: var(--color-surface);
+  background-color: var(--color-surface); /* Теперь светло-персиковый */
   border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
+  border: none; /* Убрали белую рамку */
 }
 
 .hero h1 {
@@ -316,7 +328,7 @@ footer {
   padding: var(--space-md);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  background-color: var(--color-surface);
+  background-color: var(--color-surface); /* Теперь светло-персиковый */
   position: relative;
   transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
@@ -603,6 +615,7 @@ footer {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   font: inherit;
+  background-color: var(--color-white); /* Поля ввода белые для контраста */
 }
 
 .order-form__input:hover,
