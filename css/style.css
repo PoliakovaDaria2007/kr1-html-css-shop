@@ -3,19 +3,24 @@
    =============================== */
 
 :root {
-  --color-bg: #ffffff;
-  --color-text: #222222;
-  --color-muted: #666666;
-  --color-primary: #0057b8;
-  --color-primary-dark: #003f86;
-  --color-border: #dddddd;
-  --color-surface: #f7f7f7;
-  --color-surface-accent: #eef5ff;
-  --color-danger: #b00020;
-  --color-success: #168a2f;
-  --color-success-bg: #eefaf0;
+  /* Фоны */
+  --color-bg: #F8F5F2;          /* Теплый светлый фон страницы */
+  --color-surface: #ffffff;     /* Белый для карточек */
+  --color-text: #2B2B2B;        /* Темный текст */
+  --color-muted: #6B6B6B;       
+  
+  /* Основной терракотовый цвет */
+  --color-primary: #C05C3E;     /* Терракота (шапка, акценты) */
+  --color-primary-dark: #9E3E22;/* Темнее для ховера */
+  
+  /* Синий акцент (кнопки) */
+  --color-secondary: #0056A6;   
+  --color-secondary-dark: #003D7A;
+  
+  --color-gold: #F4B41A;        /* Золотой (бейджи) */
+  --color-border: #E0DCD7;      /* Теплая светлая рамка */
   --color-white: #ffffff;
-  --color-rating: #f5a623;
+  
 
   --space-xs: 4px;
   --space-sm: 8px;
