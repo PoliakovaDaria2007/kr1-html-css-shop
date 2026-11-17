@@ -282,6 +282,79 @@ footer a:hover {
   border-bottom: 2px solid var(--color-border);
   padding-bottom: var(--space-sm);
 }
+/* =========================================
+   Папки-категории
+   ========================================= */
+.folders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+  justify-content: center;
+}
+
+.folder-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none; /* Убирает подчеркивание у ссылки */
+  color: var(--color-text); /* Текст темный, а не синий */
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--color-surface); /* Фон карточки */
+  border: 1px solid var(--color-border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.folder-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* Обложка папки (цветная полоса сверху) */
+.folder-card__cover {
+  height: 160px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-sm);
+}
+
+/* Цвета для разных категорий */
+.folder-card__cover--artists { background: linear-gradient(135deg, #C05C3E, #9E3E22); }
+.folder-card__cover--knitting { background: linear-gradient(135deg, #E68A9B, #B85B6D); }
+.folder-card__cover--embroidery { background: linear-gradient(135deg, #76B59A, #4A8C70); }
+.folder-card__cover--sewing { background: linear-gradient(135deg, #0056A6, #003D7A); }
+.folder-card__cover--beads { background: linear-gradient(135deg, #8E6B9E, #654A75); }
+.folder-card__cover--scrap { background: linear-gradient(135deg, #C2A88D, #9E8164); }
+.folder-card__cover--modeling { background: linear-gradient(135deg, #A67C52, #7A5636); }
+
+/* Плашка с названием категории на обложке */
+.folder-card__label {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  color: var(--color-white);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid var(--color-white);
+}
+
+/* Заголовок папки */
+.folder-card__title {
+  margin: var(--space-sm) var(--space-md) 0;
+  color: var(--color-text);
+}
+
+/* Описание внутри папки */
+.folder-card__desc {
+  margin: 0 var(--space-md) var(--space-md);
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.4;
+}
 
 /* =========================================
    Хлебные крошки
