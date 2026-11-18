@@ -4,14 +4,14 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const accordionHeaders = document.querySelectorAll('.accordion__header');
-
+    
     if (accordionHeaders.length > 0) {
         accordionHeaders.forEach(header => {
             header.addEventListener('click', () => {
                 const item = header.closest('.accordion__item');
                 const content = item.querySelector('.accordion__content');
                 const isOpen = item.classList.contains('open');
-
+                
                 // Закрываем все открытые элементы
                 document.querySelectorAll('.accordion__item').forEach(i => {
                     i.classList.remove('open');
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         c.style.padding = '0';
                     }
                 });
-
+                
                 // Открываем текущий элемент
                 if (!isOpen) {
                     item.classList.add('open');
@@ -50,7 +50,7 @@ if (productDialog) {
     actionButtons.forEach(button => {
         button.addEventListener('click', () => {
             const action = button.dataset.action;
-
+            
             if (action === 'details') {
                 const titleEl = document.getElementById('product-title');
                 const priceEl = document.getElementById('product-price');
@@ -79,10 +79,9 @@ if (productDialog) {
     if (openOrderFromProductBtn) {
         openOrderFromProductBtn.addEventListener('click', () => {
             productDialog.close();
-
             const orderDialogEl = document.getElementById('order-dialog');
             const selectedProductInput = document.getElementById('selected-product');
-
+            
             if (orderDialogEl && selectedProductInput) {
                 selectedProductInput.value = currentProductTitle;
                 orderDialogEl.showModal();
@@ -104,7 +103,7 @@ if (orderDialog && orderForm && successMessage) {
     const closeDialogButton = document.getElementById('close-order-dialog');
     const selectedProductInput = document.getElementById('selected-product');
 
-    // Открытие формы по кнопке «Заказать» в карточке товара
+    // Открытие формы заказа по кнопке в карточке товара
     orderButtons.forEach(button => {
         button.addEventListener('click', () => {
             if (selectedProductInput) {
@@ -123,9 +122,8 @@ if (orderDialog && orderForm && successMessage) {
     orderForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
-        // Здесь при необходимости отправьте данные на сервер:
-        // fetch('/api/order', { method: 'POST', body: new FormData(orderForm) });
-
+        // Здесь можно добавить отправку данных на сервер (fetch)
+        
         successMessage.style.display = 'block';
         orderForm.reset();
 
@@ -135,7 +133,7 @@ if (orderDialog && orderForm && successMessage) {
         }, 2000);
     });
 
-    // Закрытие по клику на backdrop
+    // Закрытие при клике на фон (backdrop)
     orderDialog.addEventListener('click', (event) => {
         if (event.target === orderDialog) {
             orderDialog.close();
