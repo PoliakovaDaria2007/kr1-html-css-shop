@@ -649,13 +649,6 @@ footer a:hover {
 .faq__answer p {
   margin: var(--space-xs) 0;
 }
-:root {
-  --color-bg: #f5d0bc;
-  --color-surface: #fbe8de;
-  --color-text: #2B2B2B;
-  --color-border: #e9c4b0;
-  --color-accent: #d98866;
-}
 
 .accordion {
   max-width: 800px;
