@@ -144,3 +144,24 @@ if (orderForm) {
         orderDialog.close();
     });
 }
+document.querySelectorAll('.accordion__header').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.accordion__item');
+    const content = item.querySelector('.accordion__content');
+    const isOpen = item.classList.contains('open');
+
+    // Закрываем все остальные
+    document.querySelectorAll('.accordion__item').forEach(i => {
+      i.classList.remove('open');
+      const c = i.querySelector('.accordion__content');
+      c.style.maxHeight = '0';
+      c.style.padding = '0';
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+      content.style.maxHeight = content.scrollHeight + 'px';
+      content.style.padding = '16px';
+    }
+  });
+});
