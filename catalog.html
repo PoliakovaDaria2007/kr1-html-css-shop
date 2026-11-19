@@ -148,5 +148,22 @@
             <path d="M9 18L12 22L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     </a>
+    <!-- Виджет чата -->
+<div class="chat-widget" id="chat-widget">
+    <button class="chat-widget__toggle" id="chat-toggle" aria-label="Открыть чат">💬</button>
+    <div class="chat-widget__panel" id="chat-panel" hidden>
+        <div class="chat-widget__header">
+            <strong>Чат с консультантом</strong>
+            <button class="chat-widget__close" id="chat-close" aria-label="Закрыть чат">×</button>
+        </div>
+        <div class="chat-widget__messages" id="chat-messages">
+            <p class="chat-widget__message chat-widget__message--bot">Здравствуйте! Чем могу помочь?</p>
+        </div>
+        <form class="chat-widget__form" id="chat-form">
+            <input class="chat-widget__input" id="chat-input" type="text" placeholder="Напишите сообщение..." aria-label="Сообщение">
+            <button class="chat-widget__send" type="submit" aria-label="Отправить">→</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>

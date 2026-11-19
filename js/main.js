@@ -252,3 +252,48 @@ if (orderDialog && orderForm && successMessage) {
         });
     });
 })();
+// ==========================================================
+// ВИДЖЕТ ЧАТА
+// ==========================================================
+
+(function () {
+    const widget = document.getElementById('chat-widget');
+    if (!widget) return;
+
+    const toggle = document.getElementById('chat-toggle');
+    const panel = document.getElementById('chat-panel');
+    const closeBtn = document.getElementById('chat-close');
+    const form = document.getElementById('chat-form');
+    const input = document.getElementById('chat-input');
+    const messages = document.getElementById('chat-messages');
+
+    toggle.addEventListener('click', () => {
+        panel.hidden = !panel.hidden;
+    });
+
+    closeBtn.addEventListener('click', () => {
+        panel.hidden = true;
+    });
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const text = input.value.trim();
+        if (!text) return;
+
+        const userMsg = document.createElement('p');
+        userMsg.className = 'chat-widget__message chat-widget__message--user';
+        userMsg.textContent = text;
+        messages.appendChild(userMsg);
+
+        input.value = '';
+        messages.scrollTop = messages.scrollHeight;
+
+        setTimeout(() => {
+            const botMsg = document.createElement('p');
+            botMsg.className = 'chat-widget__message chat-widget__message--bot';
+            botMsg.textContent = 'Спасибо за сообщение! Консультант скоро ответит.';
+            messages.appendChild(botMsg);
+            messages.scrollTop = messages.scrollHeight;
+        }, 800);
+    });
+})();
