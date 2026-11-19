@@ -1,42 +1,5 @@
 // ==========================================================
-// 1. АККОРДЕОН
-// ==========================================================
-
-document.addEventListener('DOMContentLoaded', () => {
-    const accordionHeaders = document.querySelectorAll('.accordion__header');
-    
-    if (accordionHeaders.length > 0) {
-        accordionHeaders.forEach(header => {
-            header.addEventListener('click', () => {
-                const item = header.closest('.accordion__item');
-                const content = item.querySelector('.accordion__content');
-                const isOpen = item.classList.contains('open');
-                
-                // Закрываем все открытые элементы
-                document.querySelectorAll('.accordion__item').forEach(i => {
-                    i.classList.remove('open');
-                    const c = i.querySelector('.accordion__content');
-                    if (c) {
-                        c.style.maxHeight = '0';
-                        c.style.padding = '0';
-                    }
-                });
-                
-                // Открываем текущий элемент
-                if (!isOpen) {
-                    item.classList.add('open');
-                    if (content) {
-                        content.style.maxHeight = content.scrollHeight + 'px';
-                        content.style.padding = '16px';
-                    }
-                }
-            });
-        });
-    }
-});
-
-// ==========================================================
-// 2. МОДАЛЬНОЕ ОКНО С ПОДРОБНОСТЯМИ О ТОВАРЕ
+// 1. МОДАЛЬНОЕ ОКНО С ПОДРОБНОСТЯМИ О ТОВАРЕ
 // ==========================================================
 
 const productDialog = document.getElementById('product-dialog');
@@ -52,6 +15,7 @@ if (productDialog) {
             const action = button.dataset.action;
             
             if (action === 'details') {
+                // Заполняем данные
                 const titleEl = document.getElementById('product-title');
                 const priceEl = document.getElementById('product-price');
                 const descEl = document.getElementById('product-desc');
@@ -72,10 +36,19 @@ if (productDialog) {
         });
     });
 
+    // Закрытие по кнопке
     if (closeProductBtn) {
         closeProductBtn.addEventListener('click', () => productDialog.close());
     }
 
+    // НОВОЕ: Закрытие по клику на фон для окна товара
+    productDialog.addEventListener('click', (event) => {
+        if (event.target === productDialog) {
+            productDialog.close();
+        }
+    });
+
+    // Переход к форме заказа
     if (openOrderFromProductBtn) {
         openOrderFromProductBtn.addEventListener('click', () => {
             productDialog.close();
@@ -91,7 +64,7 @@ if (productDialog) {
 }
 
 // ==========================================================
-// 3. ФОРМА ЗАКАЗА
+// 2. ФОРМА ЗАКАЗА
 // ==========================================================
 
 const orderDialog = document.getElementById('order-dialog');
@@ -122,13 +95,13 @@ if (orderDialog && orderForm && successMessage) {
     orderForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
-        // Здесь можно добавить отправку данных на сервер (fetch)
-        
-        successMessage.style.display = 'block';
+        // ИСПРАВЛЕНО: Показываем сообщение через свойство hidden
+        successMessage.hidden = false; 
         orderForm.reset();
 
         setTimeout(() => {
-            successMessage.style.display = 'none';
+            // ИСПРАВЛЕНО: Скрываем сообщение через свойство hidden
+            successMessage.hidden = true; 
             orderDialog.close();
         }, 2000);
     });
@@ -140,4 +113,3 @@ if (orderDialog && orderForm && successMessage) {
         }
     });
 }
-
