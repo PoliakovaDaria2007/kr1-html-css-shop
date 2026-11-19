@@ -116,6 +116,9 @@ a:focus-visible {
 }
 
 .site-header__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-weight: 700;
   color: var(--color-white); /* Белый логотип */
   text-decoration: none;
@@ -208,7 +211,7 @@ a:focus-visible {
   text-decoration: none;
 }
 
-/* -------- Кнопка "Наверх" -------- */
+/* -------- Кнопка "Наверх" (в виде кисти) -------- */
 
 .btn-up {
   position: fixed;
@@ -219,37 +222,121 @@ a:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  color: var(--color-white);
   background-color: var(--color-secondary);
+  color: var(--color-white);
   border-radius: 50%;
   text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s ease, transform 0.2s ease;
   z-index: 90;
 }
 
 .btn-up:hover {
   background-color: var(--color-secondary-dark);
   text-decoration: none;
+  transform: translateY(-3px);
 }
 
-/* -------- Футер -------- */
-footer {
+/* Стили для SVG-иконки кисти внутри кнопки */
+.btn-up svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* -------- Футер (две колонки) -------- */
+footer.site-footer {
   background-color: var(--color-primary); /* Терракотовый футер */
   color: var(--color-white);             /* Белый текст */
+  padding: var(--space-xl) var(--space-lg) var(--space-md);
   border-top: 1px solid var(--color-primary-dark);
-  text-align: center;
+  text-align: left; 
 }
 
-footer a {
-  color: var(--color-white);             /* Белые ссылки в футере */
+.site-footer__inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.site-footer__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.site-footer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.site-footer__list a {
+  color: var(--color-white);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.site-footer__list a:hover {
+  opacity: 1;
   text-decoration: underline;
 }
 
-footer a:hover {
-  color: var(--color-white);
-  text-decoration: none;
+.site-footer__contacts {
+  text-align: right;
+}
+
+.site-footer__contacts h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-sm);
+  color: var(--color-gold);
+}
+
+.site-footer__contacts p {
+  margin: 0 0 var(--space-xs) 0;
+  opacity: 0.9;
+}
+
+.site-footer__bottom {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* Адаптивность футера для мобильных */
+@media (max-width: 768px) {
+  .site-footer__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .site-footer__contacts {
+    text-align: center;
+  }
+  .site-footer__list {
+    align-items: center;
+  }
 }
 
 
@@ -261,14 +348,21 @@ footer a:hover {
   max-width: var(--container-width);
   margin: 0 auto var(--space-xl);
   padding: var(--space-xl) var(--space-lg);
-  background-color: var(--color-surface); /* Теперь светло-персиковый */
+  background-color: var(--color-surface);
   border-radius: var(--radius-lg);
-  border: none; /* Убрали белую рамку */
+  border: none; 
 }
 
 .hero h1 {
   margin-top: 0;
   color: var(--color-text);
+}
+
+.hero__actions {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-top: var(--space-lg);
 }
 
 .section {
@@ -297,11 +391,11 @@ footer a:hover {
 .folder-card {
   display: flex;
   flex-direction: column;
-  text-decoration: none; /* Убирает подчеркивание у ссылки */
-  color: var(--color-text); /* Текст темный, а не синий */
+  text-decoration: none; 
+  color: var(--color-text); 
   border-radius: var(--radius-md);
   overflow: hidden;
-  background-color: var(--color-surface); /* Фон карточки */
+  background-color: var(--color-surface); 
   border: 1px solid var(--color-border);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -313,7 +407,6 @@ footer a:hover {
   text-decoration: none;
 }
 
-/* Обложка папки (цветная полоса сверху) */
 .folder-card__cover {
   height: 160px;
   position: relative;
@@ -322,7 +415,6 @@ footer a:hover {
   padding: var(--space-sm);
 }
 
-/* Цвета для разных категорий */
 .folder-card__cover--artists { background: linear-gradient(135deg, #C05C3E, #9E3E22); }
 .folder-card__cover--knitting { background: linear-gradient(135deg, #E68A9B, #B85B6D); }
 .folder-card__cover--embroidery { background: linear-gradient(135deg, #76B59A, #4A8C70); }
@@ -331,7 +423,6 @@ footer a:hover {
 .folder-card__cover--scrap { background: linear-gradient(135deg, #C2A88D, #9E8164); }
 .folder-card__cover--modeling { background: linear-gradient(135deg, #A67C52, #7A5636); }
 
-/* Плашка с названием категории на обложке */
 .folder-card__label {
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
@@ -343,13 +434,11 @@ footer a:hover {
   border: 1px solid var(--color-white);
 }
 
-/* Заголовок папки */
 .folder-card__title {
   margin: var(--space-sm) var(--space-md) 0;
   color: var(--color-text);
 }
 
-/* Описание внутри папки */
 .folder-card__desc {
   margin: 0 var(--space-md) var(--space-md);
   font-size: 0.9rem;
@@ -402,7 +491,7 @@ footer a:hover {
   padding: var(--space-md);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  background-color: var(--color-surface); /* Теперь светло-персиковый */
+  background-color: var(--color-surface); 
   position: relative;
   transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
@@ -692,11 +781,11 @@ footer a:hover {
   overflow: hidden;
   transition: max-height 0.3s ease, padding 0.3s ease;
   background: var(--color-surface);
-  padding: 0 0 0 0; /* будет меняться JS */
+  padding: 0 0 0 0;
 }
 
 .accordion__item.open .accordion__content {
-  max-height: 1000px; /* достаточно большое значение */
+  max-height: 1000px;
   padding: 16px;
 }
 
@@ -738,7 +827,7 @@ footer a:hover {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   font: inherit;
-  background-color: var(--color-white); /* Поля ввода белые для контраста */
+  background-color: var(--color-white); 
 }
 
 .order-form__input:hover,
