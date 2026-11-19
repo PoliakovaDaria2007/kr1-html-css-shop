@@ -6,16 +6,21 @@
     <title>Контакты — Леонардо</title>
     <meta name="description" content="Контактная информация и ответы на частые вопросы интернет-магазина Леонардо.">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
 <body>
     <header class="site-header">
         <div class="site-header__inner">
-            <a class="site-header__logo" href="index.html">Леонардо</a>
+            <a class="site-header__logo" href="index.html">
+                <img src="images/logo.jpg" alt="Логотип Леонардо" width="24" height="24" style="vertical-align: middle; margin-right: 8px;">
+                Леонардо
+            </a>
             <nav class="site-nav" aria-label="Основная навигация">
                 <ul class="site-nav__list">
                     <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
                     <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
                     <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="contacts.html">Контакты</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="about_us.html">О нас</a></li>
                 </ul>
             </nav>
         </div>
@@ -27,7 +32,6 @@
     </nav>
 
     <main>
-        <!-- Секция: Наши контакты -->
         <section class="section">
             <h2>Наши контакты</h2>
             <p>Вы можете связаться с нами любым удобным способом:</p>
@@ -39,7 +43,6 @@
             </ul>
         </section>
 
-        <!-- Секция: Часто задаваемые вопросы -->
         <section class="section">
             <h2>Часто задаваемые вопросы</h2>
             <div class="faq">
@@ -110,9 +113,39 @@
     </main>
 
     <footer class="site-footer" id="contacts">
-        <p>&copy; 2026 Леонардо. Все права защищены.</p>
+        <div class="site-footer__inner">
+            <div class="site-footer__brand">
+                <a class="site-footer__logo" href="index.html">
+                    <img src="images/logo.jpg" alt="Логотип Леонардо" width="24" height="24" style="vertical-align: middle; margin-right: 8px;">
+                    Леонардо
+                </a>
+                <nav class="site-footer__nav" aria-label="Навигация в подвале">
+                    <ul class="site-footer__list">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="catalog.html">Каталог</a></li>
+                        <li><a href="about_us.html">О нас</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="site-footer__contacts">
+                <h3>Контакты</h3>
+                <p>+7 (900) 123-45-67</p>
+                <p>info@shopproject.ru</p>
+                <p>г. Москва, ул. Учебная, д. 1</p>
+            </div>
+        </div>
+        <div class="site-footer__bottom">
+            <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+        </div>
     </footer>
-    <a href="#" class="btn-up" aria-label="Наверх">↑</a>
 
+    <a href="#" class="btn-up" aria-label="Наверх">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 14C7 15.1046 7.89543 16 9 16H15C16.1046 16 17 15.1046 17 14V10C17 8.89543 16.1046 8 15 8H9C7.89543 8 7 8.89543 7 10V14Z" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 2V8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M9 18L12 22L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
 </body>
 </html>

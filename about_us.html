@@ -11,13 +11,16 @@
 <body>
     <header class="site-header">
         <div class="site-header__inner">
-            <a class="site-header__logo" href="index.html">Леонардо</a>
+            <a class="site-header__logo" href="index.html">
+                <img src="images/logo.jpg" alt="Логотип Леонардо" width="24" height="24" style="vertical-align: middle; margin-right: 8px;">
+                Леонардо
+            </a>
             <nav class="site-nav" aria-label="Основная навигация">
                 <ul class="site-nav__list">
                     <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
                     <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
-                    <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="about_us.html">О нас</a></li>
                     <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="about_us.html">О нас</a></li>
                 </ul>
             </nav>
         </div>
@@ -29,7 +32,6 @@
     </nav>
 
     <main>
-        <!-- Секция: О магазине -->
         <section class="section">
             <h2>О магазине «Леонардо»</h2>
             <p>
@@ -79,8 +81,76 @@
     </main>
 
     <footer class="site-footer" id="contacts">
-        <p>&copy; 2026 Леонардо. Все права защищены.</p>
+        <div class="site-footer__inner">
+            <div class="site-footer__brand">
+                <a class="site-footer__logo" href="index.html">
+                    <img src="images/logo.jpg" alt="Логотип Леонардо" width="24" height="24" style="vertical-align: middle; margin-right: 8px;">
+                    Леонардо
+                </a>
+                <nav class="site-footer__nav" aria-label="Навигация в подвале">
+                    <ul class="site-footer__list">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="catalog.html">Каталог</a></li>
+                        <li><a href="about_us.html">О нас</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="site-footer__contacts">
+                <h3>Контакты</h3>
+                <p>+7 (900) 123-45-67</p>
+                <p>info@shopproject.ru</p>
+                <p>г. Москва, ул. Учебная, д. 1</p>
+            </div>
+        </div>
+        <div class="site-footer__bottom">
+            <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+        </div>
     </footer>
-    <a href="#" class="btn-up" aria-label="Наверх">↑</a>
+
+    <a href="#" class="btn-up" aria-label="Наверх">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 14C7 15.1046 7.89543 16 9 16H15C16.1046 16 17 15.1046 17 14V10C17 8.89543 16.1046 8 15 8H9C7.89543 8 7 8.89543 7 10V14Z" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 2V8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M9 18L12 22L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+
+    <dialog class="product-dialog" id="product-dialog">
+        <h2 class="product-dialog__title" id="product-title">Название товара</h2>
+        <div class="product-dialog__body">
+            <img class="product-dialog__image" id="product-image" src="" alt="Товар">
+            <div class="product-dialog__info">
+                <p class="product-dialog__meta">
+                    <strong>Категория:</strong> <span id="product-category"></span><br>
+                    <strong>Наличие:</strong> <span id="product-stock"></span>
+                </p>
+                <p class="product-dialog__price">Цена: <span id="product-price"></span> руб.</p>
+                <p class="product-dialog__desc" id="product-desc">Описание...</p>
+            </div>
+        </div>
+        <div class="product-dialog__actions">
+            <button class="button button--secondary" id="close-product-dialog">Закрыть</button>
+            <button class="button button--primary" id="open-order-from-product">Заказать</button>
+        </div>
+    </dialog>
+
+    <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+        <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
+        <form class="order-form" id="order-form" action="#" method="post" novalidate>
+            <input id="selected-product" name="selected-product" type="hidden">
+            <div class="order-form__field"><label class="order-form__label" for="order-name">Имя</label><input class="order-form__input" id="order-name" name="name" type="text" required></div>
+            <div class="order-form__field"><label class="order-form__label" for="order-email">E-mail</label><input class="order-form__input" id="order-email" name="email" type="email" required></div>
+            <div class="order-form__field"><label class="order-form__label" for="order-phone">Телефон</label><input class="order-form__input" id="order-phone" name="phone" type="tel" required></div>
+            <div class="order-form__field"><label class="order-form__label" for="order-topic">Тема</label><select class="order-form__select" id="order-topic" name="topic" required><option value="">Выберите</option><option value="product">Заказ</option></select></div>
+            <div class="order-form__field"><label class="order-form__label" for="order-comment">Комментарий</label><textarea class="order-form__textarea" id="order-comment" name="comment" rows="2"></textarea></div>
+            <div class="order-form__field"><label><input type="checkbox" id="order-agreement" name="agreement" required> Согласие</label></div>
+            <div class="order-form__actions">
+                <button class="button button--secondary" type="button" id="close-order-dialog">Закрыть</button>
+                <button class="button button--primary" type="submit">Отправить</button>
+            </div>
+        </form>
+    </dialog>
+    <p class="success-message" id="success-message" hidden>Форма успешно отправлена!</p>
 </body>
 </html>

@@ -13,11 +13,7 @@
     <header class="site-header">
         <div class="site-header__inner">
             <a class="site-header__logo" href="index.html">
-                <!-- Графический логотип (палитра) -->
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 8px;">
-                    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="currentColor"/>
-                    <path d="M12 6C9.79 6 8 7.79 8 10C8 12.21 9.79 14 12 14C14.21 14 16 12.21 16 10C16 7.79 14.21 6 12 6Z" fill="currentColor"/>
-                </svg>
+                <img src="images/logo.jpg" alt="Логотип Леонардо" width="24" height="24" style="vertical-align: middle; margin-right: 8px;">
                 Леонардо
             </a>
             <nav class="site-nav" aria-label="Основная навигация">
@@ -32,7 +28,6 @@
     </header>
 
     <main>
-        <!-- Hero-блок с тремя кнопками -->
         <section class="hero">
             <h1>Интернет магазин "Леонардо": Всё для творчества!</h1>
             <p>Всё для вашего творчества: от первой кисти до сложного проекта. Вдохновляйтесь, создавайте и воплощайте самые смелые идеи вместе с Леонардо.</p>
@@ -46,7 +41,6 @@
         <section class="section" id="popular">
             <h2>Популярные товары</h2>
             <div class="products-grid">
-                <!-- Карточки товаров остаются без изменений -->
                 <article class="product-card product-card--featured">
                     <span class="product-card__badge">Хит</span>
                     <h3 class="product-card__title">Акварельные краски</h3>
@@ -109,16 +103,11 @@
         </section>
     </main>
 
-    <!-- НОВЫЙ ФУТЕР -->
     <footer class="site-footer" id="contacts">
         <div class="site-footer__inner">
-            <!-- Левая колонка: Логотип и навигация -->
             <div class="site-footer__brand">
                 <a class="site-footer__logo" href="index.html">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 8px;">
-                        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="currentColor"/>
-                        <path d="M12 6C9.79 6 8 7.79 8 10C8 12.21 9.79 14 12 14C14.21 14 16 12.21 16 10C16 7.79 14.21 6 12 6Z" fill="currentColor"/>
-                    </svg>
+                    <img src="images/logo.jpg" alt="Логотип Леонардо" width="24" height="24" style="vertical-align: middle; margin-right: 8px;">
                     Леонардо
                 </a>
                 <nav class="site-footer__nav" aria-label="Навигация в подвале">
@@ -130,8 +119,6 @@
                     </ul>
                 </nav>
             </div>
-
-            <!-- Правая колонка: Контакты -->
             <div class="site-footer__contacts">
                 <h3>Контакты</h3>
                 <p>+7 (900) 123-45-67</p>
@@ -139,16 +126,12 @@
                 <p>г. Москва, ул. Учебная, д. 1</p>
             </div>
         </div>
-        
-        <!-- Нижняя часть: Копирайт -->
         <div class="site-footer__bottom">
             <p>&copy; 2026 Учебный проект. Все права защищены.</p>
         </div>
     </footer>
 
-    <!-- Кнопка "Наверх" со стилем кисти -->
     <a href="#" class="btn-up" aria-label="Наверх">
-        <!-- SVG-иконка кисти -->
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7 14C7 15.1046 7.89543 16 9 16H15C16.1046 16 17 15.1046 17 14V10C17 8.89543 16.1046 8 15 8H9C7.89543 8 7 8.89543 7 10V14Z" stroke="currentColor" stroke-width="2"/>
             <path d="M12 2V8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -156,7 +139,6 @@
         </svg>
     </a>
 
-    <!-- Модальные окна (без изменений) -->
     <dialog class="product-dialog" id="product-dialog">...</dialog>
     <dialog class="order-dialog" id="order-dialog">...</dialog>
     <p class="success-message" id="success-message" hidden>Форма успешно отправлена!</p>

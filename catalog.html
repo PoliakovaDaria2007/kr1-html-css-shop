@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Каталог — Леонардо</title>
-    <meta name="description" content="Интернет магазин Леонардо: Всё для творчества! Католог.">
+    <meta name="description" content="Интернет магазин Леонардо: Всё для творчества! Каталог.">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js" defer></script>
 </head>
 <body>
     <header class="site-header">
-        
         <div class="site-header__inner">
-            <a class="site-header__logo" href="index.html">Леонардо</a>
+            <a class="site-header__logo" href="index.html">
+                <img src="images/logo.jpg" alt="Логотип Леонардо" width="24" height="24" style="vertical-align: middle; margin-right: 8px;">
+                Леонардо
+            </a>
             <nav class="site-nav" aria-label="Основная навигация">
                 <ul class="site-nav__list">
                     <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
@@ -35,7 +37,6 @@
             <p>Выберите категорию, чтобы перейти к товарам.</p>
 
             <div class="folders-grid">
-                <!-- 1. Для художников -->
                 <a href="categories-arts.html" class="folder-card">
                     <div class="folder-card__cover folder-card__cover--artists">
                         <span class="folder-card__label">Творчество</span>
@@ -44,7 +45,6 @@
                     <p class="folder-card__desc">Краски, кисти, холсты и мольберты</p>
                 </a>
 
-                <!-- 2. Вязание -->
                 <a href="categories-knit.html" class="folder-card">
                     <div class="folder-card__cover folder-card__cover--knitting">
                         <span class="folder-card__label">Хобби</span>
@@ -53,7 +53,6 @@
                     <p class="folder-card__desc">Пряжа, спицы, крючки и аксессуары</p>
                 </a>
 
-                <!-- 3. Вышивание -->
                 <a href="categories-embroidery.html" class="folder-card">
                     <div class="folder-card__cover folder-card__cover--embroidery">
                         <span class="folder-card__label">Рукоделие</span>
@@ -62,7 +61,6 @@
                     <p class="folder-card__desc">Нитки, канва, схемы и наборы</p>
                 </a>
 
-                <!-- 4. Шитьё -->
                 <a href="categories-sewing.html" class="folder-card">
                     <div class="folder-card__cover folder-card__cover--sewing">
                         <span class="folder-card__label">Рукоделие</span>
@@ -71,7 +69,6 @@
                     <p class="folder-card__desc">Ткани, нитки, иглы и фурнитура</p>
                 </a>
 
-                <!-- 5. Бисероплетение -->
                 <a href="categories-beadwork.html" class="folder-card">
                     <div class="folder-card__cover folder-card__cover--beads">
                         <span class="folder-card__label">Творчество</span>
@@ -80,7 +77,6 @@
                     <p class="folder-card__desc">Бисер, бусины, проволока и леска</p>
                 </a>
 
-                <!-- 6. Скрапбукинг -->
                 <a href="categories-scrapbooking.html" class="folder-card">
                     <div class="folder-card__cover folder-card__cover--scrap">
                         <span class="folder-card__label">Хобби</span>
@@ -89,7 +85,6 @@
                     <p class="folder-card__desc">Бумага, штампы, дыроколы и украшения</p>
                 </a>
 
-                <!-- 7. Лепка -->
                 <a href="categories-modeling.html" class="folder-card">
                     <div class="folder-card__cover folder-card__cover--modeling">
                         <span class="folder-card__label">Рукоделие</span>
@@ -101,16 +96,11 @@
         </section>
     </main>
 
-      <!-- НОВЫЙ ФУТЕР -->
     <footer class="site-footer" id="contacts">
         <div class="site-footer__inner">
-            <!-- Левая колонка: Логотип и навигация -->
             <div class="site-footer__brand">
                 <a class="site-footer__logo" href="index.html">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 8px;">
-                        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="currentColor"/>
-                        <path d="M12 6C9.79 6 8 7.79 8 10C8 12.21 9.79 14 12 14C14.21 14 16 12.21 16 10C16 7.79 14.21 6 12 6Z" fill="currentColor"/>
-                    </svg>
+                    <img src="images/logo.jpg" alt="Логотип Леонардо" width="24" height="24" style="vertical-align: middle; margin-right: 8px;">
                     Леонардо
                 </a>
                 <nav class="site-footer__nav" aria-label="Навигация в подвале">
@@ -122,8 +112,6 @@
                     </ul>
                 </nav>
             </div>
-
-            <!-- Правая колонка: Контакты -->
             <div class="site-footer__contacts">
                 <h3>Контакты</h3>
                 <p>+7 (900) 123-45-67</p>
@@ -131,13 +119,11 @@
                 <p>г. Москва, ул. Учебная, д. 1</p>
             </div>
         </div>
-        
-        <!-- Нижняя часть: Копирайт -->
         <div class="site-footer__bottom">
             <p>&copy; 2026 Учебный проект. Все права защищены.</p>
         </div>
     </footer>
-        <!-- Кнопка "Наверх" в виде кисти -->
+
     <a href="#" class="btn-up" aria-label="Наверх">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7 14C7 15.1046 7.89543 16 9 16H15C16.1046 16 17 15.1046 17 14V10C17 8.89543 16.1046 8 15 8H9C7.89543 8 7 8.89543 7 10V14Z" stroke="currentColor" stroke-width="2"/>

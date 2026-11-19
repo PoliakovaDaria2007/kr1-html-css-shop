@@ -11,7 +11,10 @@
 <body>
     <header class="site-header">
         <div class="site-header__inner">
-            <a class="site-header__logo" href="index.html">Леонардо</a>
+            <a class="site-header__logo" href="index.html">
+                <img src="images/logo.jpg" alt="Логотип Леонардо" width="24" height="24" style="vertical-align: middle; margin-right: 8px;">
+                Леонардо
+            </a>
             <nav class="site-nav" aria-label="Основная навигация">
                 <ul class="site-nav__list">
                     <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
@@ -23,7 +26,6 @@
         </div>
     </header>
 
-    <!-- Хлебные крошки -->
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
         <a class="breadcrumbs__link" href="index.html">Главная</a>
         <a class="breadcrumbs__link" href="catalog.html">Каталог</a>
@@ -32,7 +34,6 @@
 
     <main>
         <section class="catalog-layout">
-            <!-- Sticky-фильтры -->
             <aside class="catalog-filters">
                 <h2>Фильтры</h2>
                 <form class="filters-form" action="#" method="get">
@@ -53,12 +54,9 @@
                 </form>
             </aside>
 
-            <!-- Сетка товаров -->
             <section class="catalog-products">
                 <h2>Для художников</h2>
                 <div class="products-grid">
-                    
-                    <!-- Товар 1 -->
                     <article class="product-card">
                         <span class="product-card__badge">Хит</span>
                         <h3 class="product-card__title">Товар 1</h3>
@@ -78,7 +76,6 @@
                         </div>
                     </article>
 
-                    <!-- Товар 2 -->
                     <article class="product-card">
                         <h3 class="product-card__title">Товар 2</h3>
                         <p class="product-card__description">Краткое описание.</p>
@@ -97,7 +94,6 @@
                         </div>
                     </article>
 
-                    <!-- Товар 3 -->
                     <article class="product-card product-card--discount">
                         <span class="product-card__badge">Скидка</span>
                         <h3 class="product-card__title">Товар 3</h3>
@@ -117,7 +113,6 @@
                         </div>
                     </article>
 
-                    <!-- Товар 4 -->
                     <article class="product-card">
                         <h3 class="product-card__title">Товар 4</h3>
                         <p class="product-card__description">Краткое описание.</p>
@@ -136,7 +131,6 @@
                         </div>
                     </article>
 
-                    <!-- Товар 5 -->
                     <article class="product-card">
                         <h3 class="product-card__title">Товар 5</h3>
                         <p class="product-card__description">Краткое описание.</p>
@@ -155,7 +149,6 @@
                         </div>
                     </article>
 
-                    <!-- Товар 6 -->
                     <article class="product-card">
                         <span class="product-card__badge">Новинка</span>
                         <h3 class="product-card__title">Товар 6</h3>
@@ -175,7 +168,6 @@
                         </div>
                     </article>
 
-                    <!-- Товар 7 -->
                     <article class="product-card">
                         <h3 class="product-card__title">Товар 7</h3>
                         <p class="product-card__description">Краткое описание.</p>
@@ -194,7 +186,6 @@
                         </div>
                     </article>
 
-                    <!-- Товар 8 -->
                     <article class="product-card product-card--discount">
                         <span class="product-card__badge">Скидка</span>
                         <h3 class="product-card__title">Товар 8</h3>
@@ -214,7 +205,6 @@
                         </div>
                     </article>
 
-                    <!-- Товар 9 -->
                     <article class="product-card">
                         <h3 class="product-card__title">Товар 9</h3>
                         <p class="product-card__description">Краткое описание.</p>
@@ -233,7 +223,6 @@
                         </div>
                     </article>
 
-                    <!-- Товар 10 -->
                     <article class="product-card">
                         <h3 class="product-card__title">Товар 10</h3>
                         <p class="product-card__description">Краткое описание.</p>
@@ -251,22 +240,16 @@
                             </button>
                         </div>
                     </article>
-
                 </div>
             </section>
         </section>
     </main>
 
-        <!-- НОВЫЙ ФУТЕР -->
     <footer class="site-footer" id="contacts">
         <div class="site-footer__inner">
-            <!-- Левая колонка: Логотип и навигация -->
             <div class="site-footer__brand">
                 <a class="site-footer__logo" href="index.html">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 8px;">
-                        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="currentColor"/>
-                        <path d="M12 6C9.79 6 8 7.79 8 10C8 12.21 9.79 14 12 14C14.21 14 16 12.21 16 10C16 7.79 14.21 6 12 6Z" fill="currentColor"/>
-                    </svg>
+                    <img src="images/logo.jpg" alt="Логотип Леонардо" width="24" height="24" style="vertical-align: middle; margin-right: 8px;">
                     Леонардо
                 </a>
                 <nav class="site-footer__nav" aria-label="Навигация в подвале">
@@ -278,8 +261,6 @@
                     </ul>
                 </nav>
             </div>
-
-            <!-- Правая колонка: Контакты -->
             <div class="site-footer__contacts">
                 <h3>Контакты</h3>
                 <p>+7 (900) 123-45-67</p>
@@ -287,13 +268,11 @@
                 <p>г. Москва, ул. Учебная, д. 1</p>
             </div>
         </div>
-        
-        <!-- Нижняя часть: Копирайт -->
         <div class="site-footer__bottom">
             <p>&copy; 2026 Учебный проект. Все права защищены.</p>
         </div>
     </footer>
-        <!-- Кнопка "Наверх" в виде кисти -->
+
     <a href="#" class="btn-up" aria-label="Наверх">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7 14C7 15.1046 7.89543 16 9 16H15C16.1046 16 17 15.1046 17 14V10C17 8.89543 16.1046 8 15 8H9C7.89543 8 7 8.89543 7 10V14Z" stroke="currentColor" stroke-width="2"/>
@@ -302,7 +281,6 @@
         </svg>
     </a>
 
-    <!-- МОДАЛЬНОЕ ОКНО 1: ПОДРОБНАЯ ИНФОРМАЦИЯ О ТОВАРЕ -->
     <dialog class="product-dialog" id="product-dialog">
         <h2 class="product-dialog__title" id="product-title">Название товара</h2>
         <div class="product-dialog__body">
@@ -322,7 +300,6 @@
         </div>
     </dialog>
 
-    <!-- МОДАЛЬНОЕ ОКНО 2: ФОРМА ЗАКАЗА -->
     <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
         <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
         <form class="order-form" id="order-form" action="#" method="post" novalidate>
