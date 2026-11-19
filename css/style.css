@@ -451,7 +451,7 @@ footer.site-footer {
    ========================================= */
 .breadcrumbs {
   max-width: var(--container-width);
-  margin: 0 auto var(--space-md);
+  margin: 0 0 var(--space-md);   /* было: 0 auto var(--space-md) */
   font-size: 14px;
   color: var(--color-muted);
   padding: var(--space-md) var(--space-lg) 0;
@@ -470,7 +470,6 @@ footer.site-footer {
   content: " / ";
   color: var(--color-muted);
 }
-
 /* =========================================
    Сетка товаров
    ========================================= */
