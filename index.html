@@ -10,39 +10,40 @@
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="site-header__inner">
-        <a class="site-header__logo" href="index.html">
-            <img src="images/logo.jpg" alt="Логотип Леонардо" width="24" height="24" style="vertical-align: middle; margin-right: 8px;">
-            Леонардо
-        </a>
-
-       
-        <nav class="site-nav" aria-label="Основная навигация">
-            <ul class="site-nav__list">
-                <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="about_us.html">О нас</a></li>
-            </ul>
-
-        <!-- Иконки: избранное + личный кабинет -->
-        <div class="site-header__actions">
-            <a class="site-header__action" href="favorites.html" aria-label="Избранное" title="Избранное">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 21C12 21 4 13.5 4 8.5C4 5.42 6.42 3 9.5 3C11.24 3 12.91 3.81 14 5.08C15.09 3.81 16.76 3 18.5 3C21.58 3 24 5.42 24 8.5C24 13.5 16 21 16 21H12Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                </svg>
-                <span class="site-header__action-count" id="favorites-count">0</span>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-header__logo" href="index.html">
+                <img src="images/logo.jpg" alt="Логотип Леонардо" width="24" height="24" style="vertical-align: middle; margin-right: 8px;">
+                Леонардо
             </a>
-            <a class="site-header__action" href="account.html" aria-label="Личный кабинет" title="Личный кабинет">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
-                    <path d="M4 21C4 17.13 7.13 14 11 14H13C16.87 14 20 17.13 20 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-            </a>
+
+            <!-- Навигация -->
+            <nav class="site-nav" aria-label="Основная навигация">
+                <ul class="site-nav__list">
+                    <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="index.html">Главная</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="about_us.html">О нас</a></li>
+                </ul>
+            </nav>
+
+            <!-- Иконки: избранное + личный кабинет (ИСПРАВЛЕНО: вынесены из nav) -->
+            <div class="site-header__actions">
+                <a class="site-header__action" href="favorites.html" aria-label="Избранное" title="Избранное">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 21C12 21 4 13.5 4 8.5C4 5.42 6.42 3 9.5 3C11.24 3 12.91 3.81 14 5.08C15.09 3.81 16.76 3 18.5 3C21.58 3 24 5.42 24 8.5C24 13.5 16 21 16 21H12Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="site-header__action-count" id="favorites-count">0</span>
+                </a>
+                <a class="site-header__action" href="account.html" aria-label="Личный кабинет" title="Личный кабинет">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+                        <path d="M4 21C4 17.13 7.13 14 11 14H13C16.87 14 20 17.13 20 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </a>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
     <main>
         <section class="hero">
@@ -58,6 +59,7 @@
         <section class="section" id="popular">
             <h2>Популярные товары</h2>
             <div class="products-grid">
+                <!-- Карточка 1 -->
                 <article class="product-card product-card--featured">
                     <span class="product-card__badge">Хит</span>
                     <h3 class="product-card__title">Акварельные краски</h3>
@@ -67,7 +69,7 @@
                         <button class="button button--secondary product-card__button" 
                                 data-action="details" data-title="Акварельные краски" data-price="1200" 
                                 data-category="Для художников" data-stock="В наличии"
-                                data-desc="Набор 12 цветов, профессиональные. Подходят для работы на бумаге и холсте. В комплекте кисть."
+                                data-desc="Профессиональный набор акварельных красок из 12 цветов. Обладает высокой светостойкостью и чистотой цвета. Отлично подходит для работы на бумаге и холсте. В комплект входит удобная кисть и пластиковая палитра."
                                 data-image="images/paint.jpg">
                             Подробнее
                         </button>
@@ -78,6 +80,7 @@
                     </div>
                 </article>
 
+                <!-- Карточка 2 -->
                 <article class="product-card">
                     <h3 class="product-card__title">Масляные краски</h3>
                     <p class="product-card__description">Набор 10 цветов, для холста.</p>
@@ -86,7 +89,7 @@
                         <button class="button button--secondary product-card__button" 
                                 data-action="details" data-title="Масляные краски" data-price="2500" 
                                 data-category="Для художников" data-stock="В наличии"
-                                data-desc="Набор 10 цветов, для холста. Плотная текстура, яркие цвета, долго сохнут."
+                                data-desc="Набор масляных красок из 10 цветов. Обладает плотной текстурой и яркими насыщенными цветами. Долго сохнет, что позволяет вносить правки в работу. Идеально подходит для живописи на холсте."
                                 data-image="images/oil.jpg">
                             Подробнее
                         </button>
@@ -97,6 +100,7 @@
                     </div>
                 </article>
 
+                <!-- Карточка 3 -->
                 <article class="product-card product-card--discount">
                     <span class="product-card__badge">Скидка</span>
                     <h3 class="product-card__title">Кисти синтетика</h3>
@@ -106,7 +110,7 @@
                         <button class="button button--secondary product-card__button" 
                                 data-action="details" data-title="Кисти синтетика" data-price="800" 
                                 data-category="Для художников" data-stock="Осталось мало"
-                                data-desc="Набор 5 кистей разной толщины. Синтетический ворс, подходит для акрила и гуаши."
+                                data-desc="Набор из 5 кистей разной толщины. Синтетический ворс отлично держит форму и подходит для работы с акрилом и гуашью. Удобные деревянные ручки и прочный металлический обжим."
                                 data-image="images/brushes.jpg">
                             Подробнее
                         </button>
@@ -120,6 +124,7 @@
         </section>
     </main>
 
+    <!-- ФУТЕР -->
     <footer class="site-footer" id="contacts">
         <div class="site-footer__inner">
             <div class="site-footer__brand">
@@ -148,6 +153,7 @@
         </div>
     </footer>
 
+    <!-- Кнопка "Наверх" со стилем кисти -->
     <a href="#" class="btn-up" aria-label="Наверх">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7 14C7 15.1046 7.89543 16 9 16H15C16.1046 16 17 15.1046 17 14V10C17 8.89543 16.1046 8 15 8H9C7.89543 8 7 8.89543 7 10V14Z" stroke="currentColor" stroke-width="2"/>
@@ -156,25 +162,99 @@
         </svg>
     </a>
 
-    <dialog class="product-dialog" id="product-dialog">...</dialog>
-    <dialog class="order-dialog" id="order-dialog">...</dialog>
-    <p class="success-message" id="success-message" hidden>Форма успешно отправлена!</p>
-    <!-- Виджет чата -->
-<div class="chat-widget" id="chat-widget">
-    <button class="chat-widget__toggle" id="chat-toggle" aria-label="Открыть чат">💬</button>
-    <div class="chat-widget__panel" id="chat-panel" hidden>
-        <div class="chat-widget__header">
-            <strong>Чат с консультантом</strong>
-            <button class="chat-widget__close" id="chat-close" aria-label="Закрыть чат">×</button>
+    <!-- МОДАЛЬНОЕ ОКНО 1: ПОДРОБНАЯ ИНФОРМАЦИЯ О ТОВАРЕ -->
+    <dialog class="product-dialog" id="product-dialog">
+        <div class="product-dialog__header">
+            <h2 class="product-dialog__title" id="product-title">Название товара</h2>
+            <button class="product-dialog__close-btn" id="close-product-dialog" aria-label="Закрыть">×</button>
         </div>
-        <div class="chat-widget__messages" id="chat-messages">
-            <p class="chat-widget__message chat-widget__message--bot">Здравствуйте! Чем могу помочь?</p>
+        
+        <div class="product-dialog__body">
+            <div class="product-dialog__image-wrapper">
+                <img class="product-dialog__image" id="product-image" src="" alt="Товар" onerror="this.src='images/default.jpg'">
+            </div>
+
+            <div class="product-dialog__info">
+                <div class="product-dialog__meta">
+                    <span class="product-dialog__badge" id="product-category">Категория</span>
+                    <span class="product-dialog__stock" id="product-stock">В наличии</span>
+                </div>
+                
+                <p class="product-dialog__price">Цена: <span id="product-price">0</span> руб.</p>
+                
+                <div class="product-dialog__description">
+                    <h3>Описание</h3>
+                    <p id="product-desc">Описание...</p>
+                </div>
+
+                <div class="product-dialog__actions">
+                    <button class="button button--secondary" id="open-order-from-product">Заказать</button>
+                    <button class="button button--secondary" data-favorite="" data-price="" data-image="" id="add-to-fav-btn" style="color: var(--color-danger); border-color: var(--color-danger);">
+                        ♥ В избранное
+                    </button>
+                </div>
+            </div>
         </div>
-        <form class="chat-widget__form" id="chat-form">
-            <input class="chat-widget__input" id="chat-input" type="text" placeholder="Напишите сообщение..." aria-label="Сообщение">
-            <button class="chat-widget__send" type="submit" aria-label="Отправить">→</button>
+    </dialog>
+
+    <!-- МОДАЛЬНОЕ ОКНО 2: ФОРМА ЗАКАЗА -->
+    <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+        <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
+        <form class="order-form" id="order-form" action="#" method="post" novalidate>
+            <input id="selected-product" name="selected-product" type="hidden">
+            
+            <div class="order-form__field">
+                <label class="order-form__label" for="order-name">Имя</label>
+                <input class="order-form__input" id="order-name" name="name" type="text" required>
+            </div>
+            <div class="order-form__field">
+                <label class="order-form__label" for="order-email">E-mail</label>
+                <input class="order-form__input" id="order-email" name="email" type="email" required>
+            </div>
+            <div class="order-form__field">
+                <label class="order-form__label" for="order-phone">Телефон</label>
+                <input class="order-form__input" id="order-phone" name="phone" type="tel" required>
+            </div>
+            <div class="order-form__field">
+                <label class="order-form__label" for="order-topic">Тема заявки</label>
+                <select class="order-form__select" id="order-topic" name="topic" required>
+                    <option value="">Выберите тему</option>
+                    <option value="product">Заказ товара</option>
+                    <option value="consultation">Консультация</option>
+                </select>
+            </div>
+            <div class="order-form__field">
+                <label class="order-form__label" for="order-comment">Комментарий</label>
+                <textarea class="order-form__textarea" id="order-comment" name="comment" rows="3"></textarea>
+            </div>
+            <div class="order-form__field">
+                <label><input type="checkbox" id="order-agreement" name="agreement" required> Я согласен на обработку данных</label>
+            </div>
+            
+            <div class="order-form__actions">
+                <button class="button button--secondary" type="button" id="close-order-dialog">Закрыть</button>
+                <button class="button button--primary" type="submit">Отправить заявку</button>
+            </div>
         </form>
+    </dialog>
+    <p class="success-message" id="success-message" hidden>Форма успешно отправлена!</p>
+
+    <!-- Виджет чата -->
+    <div class="chat-widget" id="chat-widget">
+        <button class="chat-widget__toggle" id="chat-toggle" aria-label="Открыть чат">💬</button>
+        <div class="chat-widget__panel" id="chat-panel" hidden>
+            <div class="chat-widget__header">
+                <strong>Чат с консультантом</strong>
+                <button class="chat-widget__close" id="chat-close" aria-label="Закрыть чат">×</button>
+            </div>
+            <div class="chat-widget__messages" id="chat-messages">
+                <p class="chat-widget__message chat-widget__message--bot">Здравствуйте! Чем могу помочь?</p>
+            </div>
+            <form class="chat-widget__form" id="chat-form">
+                <input class="chat-widget__input" id="chat-input" type="text" placeholder="Напишите сообщение..." aria-label="Сообщение">
+                <button class="chat-widget__send" type="submit" aria-label="Отправить">→</button>
+            </form>
+        </div>
     </div>
-</div>
 </body>
 </html>

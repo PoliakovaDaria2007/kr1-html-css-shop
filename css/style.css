@@ -1128,3 +1128,97 @@ footer.site-footer {
     color: #777;
     font-style: italic;
 }
+
+/* =========================================
+   НОВОЕ: Модальное окно просмотра товара (.product-dialog)
+   ========================================= */
+.product-dialog {
+  width: min(100% - 32px, 600px);
+  padding: var(--space-lg);
+  border: none;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.product-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.product-dialog__title {
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+  color: var(--color-primary);
+  font-size: 24px;
+}
+
+.product-dialog__body {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: flex-start;
+  margin-bottom: var(--space-lg);
+}
+
+.product-dialog__image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+}
+
+/* Заглушка, если картинки нет */
+.product-dialog__image:not([src]), 
+.product-dialog__image[src=""] {
+  background-color: #ddd;
+}
+
+.product-dialog__info {
+  flex: 1;
+}
+
+.product-dialog__meta {
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.product-dialog__meta strong {
+  color: var(--color-text);
+}
+
+.product-dialog__price {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.product-dialog__desc {
+  color: var(--color-text);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.product-dialog__actions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: flex-end; /* Кнопки прижаты вправо */
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-md);
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 600px) {
+  .product-dialog__body {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .product-dialog__actions {
+    justify-content: center;
+  }
+}
