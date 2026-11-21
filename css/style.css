@@ -894,7 +894,7 @@ footer.site-footer {
    ========================================= */
 .chat-widget {
   position: fixed;
-  right: 24px;
+  left: 24px;       /* БЫЛО: right: 24px — перенесли влево */
   bottom: 24px;
   z-index: 9999;
 }
@@ -921,7 +921,7 @@ footer.site-footer {
 
 .chat-widget__panel {
   position: absolute;
-  right: 0;
+  left: 0;          /* БЫЛО: right: 0 — чтобы панель открывалась вправо, а не за экран */
   bottom: 72px;
   width: 320px;
   max-height: 420px;
@@ -1007,7 +1007,6 @@ footer.site-footer {
   cursor: pointer;
   font-size: 18px;
 }
-
 /* =========================================
    Кнопка "В избранное" на карточке товара
    ========================================= */
