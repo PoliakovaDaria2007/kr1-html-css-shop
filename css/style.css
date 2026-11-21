@@ -486,9 +486,23 @@ footer.site-footer {
    ========================================= */
 .products-grid {
   display: grid;
-  /* Автоматически подстраиваем колонки (около 4 штук в ряд) */
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  /* Жестко задаем 4 колонки, чтобы карточки не растягивались */
+  grid-template-columns: repeat(4, 1fr); 
   gap: var(--space-md);
+}
+
+/* Адаптивность: 3 колонки на планшетах */
+@media (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Адаптивность: 2 колонки на мобильных */
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* =========================================
@@ -536,17 +550,18 @@ footer.site-footer {
 /* Картинка внутри карточки */
 .product-card__img {
   width: 100%;
-  height: 140px; /* Уменьшили высоту с 180px */
-  object-fit: cover;
+  height: 130px; /* Уменьшенная высота */
+  object-fit: contain; /* Картинка вписывается целиком, без обрезки */
   border-radius: var(--radius-sm);
   margin-bottom: var(--space-sm);
-  background-color: #eee;
+  background-color: #fff; /* Белый фон, чтобы товар выделялся */
+  padding: 8px;
 }
 
 .product-card__title {
   margin: 0;
   color: var(--color-text);
-  font-size: 1.1rem; /* Немного уменьшили заголовок для компактности */
+  font-size: 1.1rem;
 }
 
 .product-card__description {
@@ -575,6 +590,7 @@ footer.site-footer {
   flex: 1;
   text-align: center;
   font-size: 14px;
+  padding: 8px; /* Чуть меньше отступы для компактности */
 }
 
 /* =========================================
@@ -585,7 +601,7 @@ footer.site-footer {
   max-width: var(--container-width);
   margin: 0 auto var(--space-xl);
   display: grid;
-  grid-template-columns: 260px 1fr;
+  grid-template-columns: 240px 1fr; /* Немного сузили фильтры */
   grid-template-areas: "filters products";
   gap: var(--space-lg);
   align-items: start;
@@ -862,7 +878,7 @@ footer.site-footer {
   display: flex;
   align-items: center;
   gap: 20px;
-  flex-shrink: 0; /* Не позволяем сжиматься */
+  flex-shrink: 0;
 }
 
 .site-header__action {
@@ -879,7 +895,6 @@ footer.site-footer {
   color: var(--color-gold);
 }
 
-/* Увеличенные иконки (28px) */
 .site-header__action svg {
   width: 28px;
   height: 28px;
@@ -907,7 +922,7 @@ footer.site-footer {
    ========================================= */
 .chat-widget {
   position: fixed;
-  left: 24px;       /* Слева */
+  left: 24px;
   bottom: 24px;
   z-index: 9999;
 }
@@ -934,7 +949,7 @@ footer.site-footer {
 
 .chat-widget__panel {
   position: absolute;
-  left: 0;          /* Панель открывается вправо */
+  left: 0;
   bottom: 72px;
   width: 320px;
   max-height: 420px;
@@ -946,7 +961,6 @@ footer.site-footer {
   overflow: hidden;
 }
 
-/* Важно: скрываем панель, если стоит атрибут hidden */
 .chat-widget__panel[hidden] {
   display: none !important;
 }
@@ -1026,7 +1040,7 @@ footer.site-footer {
    ========================================= */
 .product-card__favorite {
   position: absolute;
-  top: 26px; /* Опустили чуть ниже, чтобы не перекрывать бейдж "Хит" */
+  top: 26px;
   right: 24px;
   width: 32px;
   height: 32px;
@@ -1221,7 +1235,7 @@ footer.site-footer {
 .product-dialog__actions {
   display: flex;
   gap: var(--space-md);
-  justify-content: flex-end; /* Кнопки прижаты вправо */
+  justify-content: flex-end;
   border-top: 1px solid var(--color-border);
   padding-top: var(--space-md);
 }
