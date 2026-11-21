@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет — Леонардо</title>
+    <meta name="description" content="Личный кабинет интернет-магазина Леонардо.">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-header__logo" href="index.html">
+                <img src="images/logo.jpg" alt="Логотип Леонардо" width="24" height="24" style="vertical-align: middle; margin-right: 8px;">
+                Леонардо
+            </a>
+
+            <nav class="site-nav" aria-label="Основная навигация">
+                <ul class="site-nav__list">
+                    <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="about_us.html">О нас</a></li>
+                </ul>
+            </nav>
+
+            <div class="site-header__actions">
+                <a class="site-header__action" href="favorites.html" aria-label="Избранное" title="Избранное">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 21C12 21 4 13.5 4 8.5C4 5.42 6.42 3 9.5 3C11.24 3 12.91 3.81 14 5.08C15.09 3.81 16.76 3 18.5 3C21.58 3 24 5.42 24 8.5C24 13.5 16 21 16 21H12Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="site-header__action-count" id="favorites-count">0</span>
+                </a>
+                <a class="site-header__action" href="account.html" aria-label="Личный кабинет" title="Личный кабинет">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+                        <path d="M4 21C4 17.13 7.13 14 11 14H13C16.87 14 20 17.13 20 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="index.html">Главная</a>
+        <span class="breadcrumbs__current">Личный кабинет</span>
+    </nav>
+
+    <main>
+        <section class="section">
+            <h2>Личный кабинет</h2>
+            <p>Здесь будет информация о вашем профиле и заказах.</p>
+
+            <div class="account-grid">
+                <article class="account-card">
+                    <h3>Профиль</h3>
+                    <p>Имя: Гость</p>
+                    <p>E-mail: —</p>
+                </article>
+
+                <article class="account-card">
+                    <h3>Мои заказы</h3>
+                    <p>Пока нет оформленных заказов.</p>
+                </article>
+
+                <article class="account-card">
+                    <h3>Избранное</h3>
+                    <p><a href="favorites.html">Перейти в избранное</a></p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="contacts">
+        <div class="site-footer__inner">
+            <div class="site-footer__brand">
+                <a class="site-footer__logo" href="index.html">
+                    <img src="images/logo.jpg" alt="Логотип Леонардо" width="24" height="24" style="vertical-align: middle; margin-right: 8px;">
+                    Леонардо
+                </a>
+                <nav class="site-footer__nav" aria-label="Навигация в подвале">
+                    <ul class="site-footer__list">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="catalog.html">Каталог</a></li>
+                        <li><a href="about_us.html">О нас</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="site-footer__contacts">
+                <h3>Контакты</h3>
+                <p>+7 (900) 123-45-67</p>
+                <p>info@shopproject.ru</p>
+                <p>г. Москва, ул. Учебная, д. 1</p>
+            </div>
+        </div>
+        <div class="site-footer__bottom">
+            <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <a href="#" class="btn-up" aria-label="Наверх">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 14C7 15.1046 7.89543 16 9 16H15C16.1046 16 17 15.1046 17 14V10C17 8.89543 16.1046 8 15 8H9C7.89543 8 7 8.89543 7 10V14Z" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 2V8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M9 18L12 22L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+
+    <!-- Виджет чата -->
+    <div class="chat-widget" id="chat-widget">
+        <button class="chat-widget__toggle" id="chat-toggle" aria-label="Открыть чат">💬</button>
+        <div class="chat-widget__panel" id="chat-panel" hidden>
+            <div class="chat-widget__header">
+                <strong>Чат с консультантом</strong>
+                <button class="chat-widget__close" id="chat-close" aria-label="Закрыть чат">×</button>
+            </div>
+            <div class="chat-widget__messages" id="chat-messages">
+                <p class="chat-widget__message chat-widget__message--bot">Здравствуйте! Чем могу помочь?</p>
+            </div>
+            <form class="chat-widget__form" id="chat-form">
+                <input class="chat-widget__input" id="chat-input" type="text" placeholder="Напишите сообщение..." aria-label="Сообщение">
+                <button class="chat-widget__send" type="submit" aria-label="Отправить">→</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

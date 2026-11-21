@@ -40,14 +40,14 @@ if (productDialog) {
         closeProductBtn.addEventListener('click', () => productDialog.close());
     }
 
-    // Закрытие по клику на фон (только если клик именно по самому dialog, а не по его содержимому)
+    // Закрытие по клику на фон
     productDialog.addEventListener('click', (event) => {
         if (event.target === productDialog) {
             productDialog.close();
         }
     });
 
-    // Переход к форме заказа из окна товара
+    // Переход к форме заказа
     if (openOrderFromProductBtn) {
         openOrderFromProductBtn.addEventListener('click', () => {
             productDialog.close();
@@ -75,7 +75,7 @@ if (orderDialog && orderForm && successMessage) {
     const closeDialogButton = document.getElementById('close-order-dialog');
     const selectedProductInput = document.getElementById('selected-product');
 
-    // Открытие формы заказа по кнопке в карточке товара
+    // Открытие формы заказа
     orderButtons.forEach(button => {
         button.addEventListener('click', () => {
             if (selectedProductInput) {
@@ -85,7 +85,7 @@ if (orderDialog && orderForm && successMessage) {
         });
     });
 
-    // Закрытие формы заказа по кнопке
+    // Закрытие формы заказа
     if (closeDialogButton) {
         closeDialogButton.addEventListener('click', () => orderDialog.close());
     }
@@ -94,14 +94,12 @@ if (orderDialog && orderForm && successMessage) {
     orderForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
-        // Проверка чекбокса согласия (HTML required работает, но на всякий случай)
         const agreement = document.getElementById('order-agreement');
         if (agreement && !agreement.checked) {
             agreement.reportValidity();
             return;
         }
 
-        // Показываем сообщение об успехе
         successMessage.hidden = false;
         orderForm.reset();
 
@@ -111,18 +109,19 @@ if (orderDialog && orderForm && successMessage) {
         }, 2000);
     });
 
-    // Закрытие при клике на фон (только по самому dialog)
+    // Закрытие по клику на фон
     orderDialog.addEventListener('click', (event) => {
         if (event.target === orderDialog) {
             orderDialog.close();
         }
     });
 
-    // При закрытии формы (любым способом) скрываем сообщение об успехе
+    // При закрытии формы скрываем сообщение
     orderDialog.addEventListener('close', () => {
         successMessage.hidden = true;
     });
 }
+
 // ==========================================================
 // 3. ИЗБРАННОЕ (localStorage)
 // ==========================================================
@@ -148,7 +147,6 @@ if (orderDialog && orderForm && successMessage) {
         if (countEl) countEl.textContent = getFavorites().length;
     }
 
-    // Кнопки "В избранное" на карточках
     document.addEventListener('click', (e) => {
         const btn = e.target.closest('[data-favorite]');
         if (!btn) return;
@@ -173,7 +171,6 @@ if (orderDialog && orderForm && successMessage) {
         saveFavorites(list);
     });
 
-    // Пометить уже добавленные в избранное при загрузке
     document.querySelectorAll('[data-favorite]').forEach(btn => {
         const list = getFavorites();
         if (list.some(item => item.title === btn.dataset.favorite)) {
@@ -185,7 +182,7 @@ if (orderDialog && orderForm && successMessage) {
 })();
 
 // ==========================================================
-// 4. ВИДЖЕТ ЧАТА
+// 4. ВИДЖЕТ ЧАТА (без дублей)
 // ==========================================================
 
 (function () {
@@ -198,6 +195,8 @@ if (orderDialog && orderForm && successMessage) {
     const form = document.getElementById('chat-form');
     const input = document.getElementById('chat-input');
     const messages = document.getElementById('chat-messages');
+
+    if (!toggle || !panel || !closeBtn || !form || !input || !messages) return;
 
     toggle.addEventListener('click', () => {
         panel.hidden = !panel.hidden;
@@ -252,48 +251,63 @@ if (orderDialog && orderForm && successMessage) {
         });
     });
 })();
+
 // ==========================================================
-// ВИДЖЕТ ЧАТА
+// 6. ОТОБРАЖЕНИЕ ИЗБРАННОГО НА favorites.html
 // ==========================================================
 
 (function () {
-    const widget = document.getElementById('chat-widget');
-    if (!widget) return;
+    const listEl = document.getElementById('favorites-list');
+    const emptyEl = document.getElementById('favorites-empty');
+    if (!listEl) return;
 
-    const toggle = document.getElementById('chat-toggle');
-    const panel = document.getElementById('chat-panel');
-    const closeBtn = document.getElementById('chat-close');
-    const form = document.getElementById('chat-form');
-    const input = document.getElementById('chat-input');
-    const messages = document.getElementById('chat-messages');
+    const KEY = 'leonardo_favorites';
 
-    toggle.addEventListener('click', () => {
-        panel.hidden = !panel.hidden;
+    function getFavorites() {
+        try {
+            return JSON.parse(localStorage.getItem(KEY)) || [];
+        } catch {
+            return [];
+        }
+    }
+
+    function render() {
+        const items = getFavorites();
+        listEl.innerHTML = '';
+
+        if (!items.length) {
+            if (emptyEl) emptyEl.hidden = false;
+            return;
+        }
+        if (emptyEl) emptyEl.hidden = true;
+
+        items.forEach(item => {
+            const card = document.createElement('article');
+            card.className = 'product-card';
+            card.innerHTML = `
+                <h3 class="product-card__title">${item.title}</h3>
+                <p class="product-card__price">Цена: ${item.price} руб.</p>
+                <div class="product-card__actions">
+                    <button class="button button--secondary product-card__button" data-remove-favorite="${item.title}">
+                        Убрать из избранного
+                    </button>
+                </div>
+            `;
+            listEl.appendChild(card);
+        });
+    }
+
+    listEl.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-remove-favorite]');
+        if (!btn) return;
+        const title = btn.dataset.removeFavorite;
+        const items = getFavorites().filter(item => item.title !== title);
+        localStorage.setItem(KEY, JSON.stringify(items));
+        render();
+
+        const countEl = document.getElementById('favorites-count');
+        if (countEl) countEl.textContent = items.length;
     });
 
-    closeBtn.addEventListener('click', () => {
-        panel.hidden = true;
-    });
-
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const text = input.value.trim();
-        if (!text) return;
-
-        const userMsg = document.createElement('p');
-        userMsg.className = 'chat-widget__message chat-widget__message--user';
-        userMsg.textContent = text;
-        messages.appendChild(userMsg);
-
-        input.value = '';
-        messages.scrollTop = messages.scrollHeight;
-
-        setTimeout(() => {
-            const botMsg = document.createElement('p');
-            botMsg.className = 'chat-widget__message chat-widget__message--bot';
-            botMsg.textContent = 'Спасибо за сообщение! Консультант скоро ответит.';
-            messages.appendChild(botMsg);
-            messages.scrollTop = messages.scrollHeight;
-        }, 800);
-    });
+    render();
 })();
