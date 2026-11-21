@@ -1251,3 +1251,118 @@ footer.site-footer {
     justify-content: center;
   }
 }
+/* =========================================
+   АНИМАЦИИ И СКРОЛЛИНГ
+   ========================================= */
+
+/* Класс, который мы будем добавлять через JS для запуска анимации */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 
+  Главная страница: делаем 3 полноценных экрана.
+  min-height: 100vh означает "высота = высота экрана".
+*/
+.home-page main section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding: var(--space-xl) var(--space-md);
+}
+
+/* 
+  Остальные страницы: делаем 2 экрана.
+  Можно задать через min-height: 80vh для контента.
+*/
+.inner-page main {
+  min-height: 90vh; /* Занимает почти весь экран */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Чтобы футер не прилипал к контенту на внутренних страницах */
+.inner-page main .section {
+  margin-bottom: var(--space-xl);
+}
+
+/* Для страницы контактов: стилизация списка */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-lg) 0;
+}
+
+.contact-list li {
+  margin-bottom: var(--space-sm);
+  font-size: 16px;
+}
+
+.contact-list strong {
+  display: inline-block;
+  width: 140px; /* Выравниваем текст по ширине */
+  color: var(--color-text);
+}
+/* =========================================
+   НАСТРОЙКА ЭКРАНОВ (СКРОЛЛИНГ)
+   ========================================= */
+
+/* 
+   ГЛАВНАЯ СТРАНИЦА
+   Задаем высоту для секций, чтобы они листались как экраны 
+*/
+.home-page .hero {
+  min-height: 85vh; /* Занял почти весь первый экран */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 0;
+  border-radius: 0; /* Убираем скругления для эффекта полноэкранного блока */
+  padding: var(--space-xl) 10%;
+}
+
+.home-page .section {
+  min-height: 80vh; /* Второй и третий экраны */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  padding: var(--space-xl) 0;
+}
+
+/* Чтобы на главной странице между секциями не было лишних отступов */
+.home-page main {
+  padding: 0; 
+}
+
+.home-page .section h2 {
+  text-align: center; /* Центрируем заголовки для красоты */
+  margin-bottom: var(--space-xl);
+}
+
+/* 
+   ВНУТРЕННИЕ СТРАНИЦЫ (Каталог, Контакты и т.д.)
+   Растягиваем основной контент, чтобы страница занимала 2 экрана
+*/
+.inner-page main {
+  min-height: 85vh; /* Контент + подвал = 100vh (полный экран) */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: var(--space-xl);
+}
+
+/* Если контента мало (например, в профиле), он не прилипнет к верху */
+.inner-page .section {
+  margin-bottom: var(--space-xl);
+  flex-grow: 1; 
+}

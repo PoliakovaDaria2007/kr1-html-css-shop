@@ -311,3 +311,32 @@ if (orderDialog && orderForm && successMessage) {
 
     render();
 })();
+// ==========================================================
+// 6. АНИМАЦИЯ ПРИ ПРОКРУТКЕ (SCROLL REVEAL)
+// ==========================================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Находим все элементы, которые нужно анимировать
+    const reveals = document.querySelectorAll('.section, .hero, .folder-card, .product-card, .faq__item');
+
+    function checkReveal() {
+        // Высота окна браузера
+        let windowHeight = window.innerHeight;
+        // Точка, на которой элемент должен начать появляться
+        let elementVisible = 100;
+
+        reveals.forEach(element => {
+            let elementTop = element.getBoundingClientRect().top;
+            if (elementTop < windowHeight - elementVisible) {
+                element.classList.add('active');
+            }
+        });
+    }
+
+    // Добавляем начальный класс для скрытия элементов
+    reveals.forEach(el => el.classList.add('reveal'));
+
+    // Проверяем при загрузке и при скролле
+    window.addEventListener('scroll', checkReveal);
+    checkReveal(); // Проверяем сразу, вдруг элементы уже видны
+});
