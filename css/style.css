@@ -388,6 +388,37 @@ footer.site-footer {
 }
 
 /* =========================================
+   Блок "О магазине" на главной
+   ========================================= */
+.about-preview {
+  max-width: var(--container-width);
+  margin: 0 auto var(--space-xl);
+  padding: var(--space-xl) var(--space-lg);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  text-align: center; /* Центрируем текст */
+}
+
+.about-preview h2 {
+  border-bottom: none; /* Убираем полоску, так как блок сам по себе выделен */
+  margin-bottom: var(--space-md);
+}
+
+.about-preview p {
+  max-width: 800px;
+  margin: 0 auto var(--space-md);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+/* Чтобы кнопка не растягивалась на всю ширину */
+.about-preview .button {
+  display: inline-block; 
+  margin-top: var(--space-md);
+}
+
+/* =========================================
    Папки-категории
    ========================================= */
 .folders-grid {
@@ -423,6 +454,23 @@ footer.site-footer {
   display: flex;
   align-items: flex-end;
   padding: var(--space-sm);
+  overflow: hidden;
+}
+
+/* Картинки внутри папок категорий */
+.folder-card__cover img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: transform 0.3s ease;
+}
+
+.folder-card:hover .folder-card__cover img {
+  transform: scale(1.05);
 }
 
 .folder-card__cover--artists { background: linear-gradient(135deg, #C05C3E, #9E3E22); }
@@ -434,6 +482,8 @@ footer.site-footer {
 .folder-card__cover--modeling { background: linear-gradient(135deg, #A67C52, #7A5636); }
 
 .folder-card__label {
+  position: relative;
+  z-index: 1; /* Текст поверх картинки */
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
   color: var(--color-white);
@@ -491,14 +541,12 @@ footer.site-footer {
   gap: var(--space-md);
 }
 
-/* Адаптивность: 3 колонки на планшетах */
 @media (max-width: 1024px) {
   .products-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* Адаптивность: 2 колонки на мобильных */
 @media (max-width: 768px) {
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -547,14 +595,13 @@ footer.site-footer {
   z-index: 1;
 }
 
-/* Картинка внутри карточки */
 .product-card__img {
   width: 100%;
-  height: 130px; /* Уменьшенная высота */
-  object-fit: contain; /* Картинка вписывается целиком, без обрезки */
+  height: 130px;
+  object-fit: contain;
   border-radius: var(--radius-sm);
   margin-bottom: var(--space-sm);
-  background-color: #fff; /* Белый фон, чтобы товар выделялся */
+  background-color: #fff;
   padding: 8px;
 }
 
@@ -590,7 +637,7 @@ footer.site-footer {
   flex: 1;
   text-align: center;
   font-size: 14px;
-  padding: 8px; /* Чуть меньше отступы для компактности */
+  padding: 8px;
 }
 
 /* =========================================
@@ -601,7 +648,7 @@ footer.site-footer {
   max-width: var(--container-width);
   margin: 0 auto var(--space-xl);
   display: grid;
-  grid-template-columns: 240px 1fr; /* Немного сузили фильтры */
+  grid-template-columns: 240px 1fr;
   grid-template-areas: "filters products";
   gap: var(--space-lg);
   align-items: start;
@@ -1198,7 +1245,6 @@ footer.site-footer {
   border: 1px solid var(--color-border);
 }
 
-/* Заглушка, если картинки нет */
 .product-dialog__image:not([src]), 
 .product-dialog__image[src=""] {
   background-color: #ddd;
@@ -1240,7 +1286,6 @@ footer.site-footer {
   padding-top: var(--space-md);
 }
 
-/* Адаптивность для мобильных */
 @media (max-width: 600px) {
   .product-dialog__body {
     flex-direction: column;
@@ -1251,11 +1296,12 @@ footer.site-footer {
     justify-content: center;
   }
 }
+
 /* =========================================
-   АНИМАЦИИ И СКРОЛЛИНГ
+   АНИМАЦИИ И СКРОЛЛИНГ (ЭКРАНЫ)
    ========================================= */
 
-/* Класс, который мы будем добавлять через JS для запуска анимации */
+/* Класс для анимации появления */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -1268,34 +1314,63 @@ footer.site-footer {
 }
 
 /* 
-  Главная страница: делаем 3 полноценных экрана.
-  min-height: 100vh означает "высота = высота экрана".
+  ГЛАВНАЯ СТРАНИЦА (3 экрана)
+  Задаем высоту секциям, чтобы они листались как экраны 
 */
-.home-page main section {
-  min-height: 100vh;
+.home-page .hero {
+  min-height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0;
-  padding: var(--space-xl) var(--space-md);
+  margin-bottom: 0;
+  border-radius: 0;
+  padding: var(--space-xl) 10%;
 }
 
-/* 
-  Остальные страницы: делаем 2 экрана.
-  Можно задать через min-height: 80vh для контента.
-*/
-.inner-page main {
-  min-height: 90vh; /* Занимает почти весь экран */
+.home-page .section {
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  padding: var(--space-xl) 0;
 }
 
-/* Чтобы футер не прилипал к контенту на внутренних страницах */
-.inner-page main .section {
+.home-page .about-preview {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.home-page main {
+  padding: 0; 
+}
+
+.home-page .section h2,
+.home-page .about-preview h2 {
+  text-align: center;
   margin-bottom: var(--space-xl);
 }
 
-/* Для страницы контактов: стилизация списка */
+/* 
+   ВНУТРЕННИЕ СТРАНИЦЫ (2 экрана)
+*/
+.inner-page main {
+  min-height: 85vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: var(--space-xl);
+}
+
+.inner-page .section {
+  margin-bottom: var(--space-xl);
+  flex-grow: 1; 
+}
+
+/* Стилизация списка на странице контактов */
 .contact-list {
   list-style: none;
   padding: 0;
@@ -1309,60 +1384,6 @@ footer.site-footer {
 
 .contact-list strong {
   display: inline-block;
-  width: 140px; /* Выравниваем текст по ширине */
+  width: 140px;
   color: var(--color-text);
-}
-/* =========================================
-   НАСТРОЙКА ЭКРАНОВ (СКРОЛЛИНГ)
-   ========================================= */
-
-/* 
-   ГЛАВНАЯ СТРАНИЦА
-   Задаем высоту для секций, чтобы они листались как экраны 
-*/
-.home-page .hero {
-  min-height: 85vh; /* Занял почти весь первый экран */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 0;
-  border-radius: 0; /* Убираем скругления для эффекта полноэкранного блока */
-  padding: var(--space-xl) 10%;
-}
-
-.home-page .section {
-  min-height: 80vh; /* Второй и третий экраны */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
-  padding: var(--space-xl) 0;
-}
-
-/* Чтобы на главной странице между секциями не было лишних отступов */
-.home-page main {
-  padding: 0; 
-}
-
-.home-page .section h2 {
-  text-align: center; /* Центрируем заголовки для красоты */
-  margin-bottom: var(--space-xl);
-}
-
-/* 
-   ВНУТРЕННИЕ СТРАНИЦЫ (Каталог, Контакты и т.д.)
-   Растягиваем основной контент, чтобы страница занимала 2 экрана
-*/
-.inner-page main {
-  min-height: 85vh; /* Контент + подвал = 100vh (полный экран) */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-top: var(--space-xl);
-}
-
-/* Если контента мало (например, в профиле), он не прилипнет к верху */
-.inner-page .section {
-  margin-bottom: var(--space-xl);
-  flex-grow: 1; 
 }
