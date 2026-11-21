@@ -9,39 +9,39 @@
     <script src="js/main.js" defer></script>
 </head>
 <body>
-     <header class="site-header">
-    <div class="site-header__inner">
-        <a class="site-header__logo" href="index.html">
-            <img src="images/logo.jpg" alt="Логотип Леонардо" width="24" height="24" style="vertical-align: middle; margin-right: 8px;">
-            Леонардо
-        </a>
-
-       
-        <nav class="site-nav" aria-label="Основная навигация">
-            <ul class="site-nav__list">
-                <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="about_us.html">О нас</a></li>
-            </ul>
-
-        <!-- Иконки: избранное + личный кабинет -->
-        <div class="site-header__actions">
-            <a class="site-header__action" href="favorites.html" aria-label="Избранное" title="Избранное">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 21C12 21 4 13.5 4 8.5C4 5.42 6.42 3 9.5 3C11.24 3 12.91 3.81 14 5.08C15.09 3.81 16.76 3 18.5 3C21.58 3 24 5.42 24 8.5C24 13.5 16 21 16 21H12Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                </svg>
-                <span class="site-header__action-count" id="favorites-count">0</span>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-header__logo" href="index.html">
+                <img src="images/logo.jpg" alt="Логотип Леонардо" width="24" height="24" style="vertical-align: middle; margin-right: 8px;">
+                Леонардо
             </a>
-            <a class="site-header__action" href="account.html" aria-label="Личный кабинет" title="Личный кабинет">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
-                    <path d="M4 21C4 17.13 7.13 14 11 14H13C16.87 14 20 17.13 20 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-            </a>
+
+            <nav class="site-nav" aria-label="Основная навигация">
+                <ul class="site-nav__list">
+                    <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="about_us.html">О нас</a></li>
+                </ul>
+            </nav>
+
+            <!-- Иконки: избранное + личный кабинет -->
+            <div class="site-header__actions">
+                <a class="site-header__action" href="favorites.html" aria-label="Избранное" title="Избранное">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 21C12 21 4 13.5 4 8.5C4 5.42 6.42 3 9.5 3C11.24 3 12.91 3.81 14 5.08C15.09 3.81 16.76 3 18.5 3C21.58 3 24 5.42 24 8.5C24 13.5 16 21 16 21H12Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="site-header__action-count" id="favorites-count">0</span>
+                </a>
+                <a class="site-header__action" href="account.html" aria-label="Личный кабинет" title="Личный кабинет">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+                        <path d="M4 21C4 17.13 7.13 14 11 14H13C16.87 14 20 17.13 20 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </a>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
         <a class="breadcrumbs__link" href="index.html">Главная</a>
@@ -54,56 +54,70 @@
             <p>Выберите категорию, чтобы перейти к товарам.</p>
 
             <div class="folders-grid">
+                <!-- 1. Для художников -->
                 <a href="categories-arts.html" class="folder-card">
                     <div class="folder-card__cover folder-card__cover--artists">
+                        <img src="images/catalog-arts.jpg" alt="Для художников" class="folder-card__img">
                         <span class="folder-card__label">Творчество</span>
                     </div>
                     <h3 class="folder-card__title">Для художников</h3>
                     <p class="folder-card__desc">Краски, кисти, холсты и мольберты</p>
                 </a>
 
+                <!-- 2. Вязание -->
                 <a href="categories-knit.html" class="folder-card">
                     <div class="folder-card__cover folder-card__cover--knitting">
+                        <img src="images/catalog-knit.jpg" alt="Вязание" class="folder-card__img">
                         <span class="folder-card__label">Хобби</span>
                     </div>
                     <h3 class="folder-card__title">Вязание</h3>
                     <p class="folder-card__desc">Пряжа, спицы, крючки и аксессуары</p>
                 </a>
 
+                <!-- 3. Вышивание -->
                 <a href="categories-embroidery.html" class="folder-card">
                     <div class="folder-card__cover folder-card__cover--embroidery">
+                        <img src="images/catalog-embroidery.jpg" alt="Вышивание" class="folder-card__img">
                         <span class="folder-card__label">Рукоделие</span>
                     </div>
                     <h3 class="folder-card__title">Вышивание</h3>
                     <p class="folder-card__desc">Нитки, канва, схемы и наборы</p>
                 </a>
 
+                <!-- 4. Шитьё -->
                 <a href="categories-sewing.html" class="folder-card">
                     <div class="folder-card__cover folder-card__cover--sewing">
+                        <img src="images/catalog-sewing.jpg" alt="Шитьё" class="folder-card__img">
                         <span class="folder-card__label">Рукоделие</span>
                     </div>
                     <h3 class="folder-card__title">Шитьё</h3>
                     <p class="folder-card__desc">Ткани, нитки, иглы и фурнитура</p>
                 </a>
 
+                <!-- 5. Бисероплетение -->
                 <a href="categories-beadwork.html" class="folder-card">
                     <div class="folder-card__cover folder-card__cover--beads">
+                        <img src="images/catalog-beadwork.jpg" alt="Бисероплетение" class="folder-card__img">
                         <span class="folder-card__label">Творчество</span>
                     </div>
                     <h3 class="folder-card__title">Бисероплетение</h3>
                     <p class="folder-card__desc">Бисер, бусины, проволока и леска</p>
                 </a>
 
+                <!-- 6. Скрапбукинг -->
                 <a href="categories-scrapbooking.html" class="folder-card">
                     <div class="folder-card__cover folder-card__cover--scrap">
+                        <img src="images/catalog-scrapbooking.jpg" alt="Скрапбукинг" class="folder-card__img">
                         <span class="folder-card__label">Хобби</span>
                     </div>
                     <h3 class="folder-card__title">Скрапбукинг</h3>
                     <p class="folder-card__desc">Бумага, штампы, дыроколы и украшения</p>
                 </a>
 
+                <!-- 7. Лепка и скульптуры -->
                 <a href="categories-modeling.html" class="folder-card">
                     <div class="folder-card__cover folder-card__cover--modeling">
+                        <img src="images/catalog-modeling.jpg" alt="Лепка и скульптуры" class="folder-card__img">
                         <span class="folder-card__label">Рукоделие</span>
                     </div>
                     <h3 class="folder-card__title">Лепка и скульптуры</h3>
@@ -148,22 +162,23 @@
             <path d="M9 18L12 22L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     </a>
+
     <!-- Виджет чата -->
-<div class="chat-widget" id="chat-widget">
-    <button class="chat-widget__toggle" id="chat-toggle" aria-label="Открыть чат">💬</button>
-    <div class="chat-widget__panel" id="chat-panel" hidden>
-        <div class="chat-widget__header">
-            <strong>Чат с консультантом</strong>
-            <button class="chat-widget__close" id="chat-close" aria-label="Закрыть чат">×</button>
+    <div class="chat-widget" id="chat-widget">
+        <button class="chat-widget__toggle" id="chat-toggle" aria-label="Открыть чат">💬</button>
+        <div class="chat-widget__panel" id="chat-panel" hidden>
+            <div class="chat-widget__header">
+                <strong>Чат с консультантом</strong>
+                <button class="chat-widget__close" id="chat-close" aria-label="Закрыть чат">×</button>
+            </div>
+            <div class="chat-widget__messages" id="chat-messages">
+                <p class="chat-widget__message chat-widget__message--bot">Здравствуйте! Чем могу помочь?</p>
+            </div>
+            <form class="chat-widget__form" id="chat-form">
+                <input class="chat-widget__input" id="chat-input" type="text" placeholder="Напишите сообщение..." aria-label="Сообщение">
+                <button class="chat-widget__send" type="submit" aria-label="Отправить">→</button>
+            </form>
         </div>
-        <div class="chat-widget__messages" id="chat-messages">
-            <p class="chat-widget__message chat-widget__message--bot">Здравствуйте! Чем могу помочь?</p>
-        </div>
-        <form class="chat-widget__form" id="chat-form">
-            <input class="chat-widget__input" id="chat-input" type="text" placeholder="Напишите сообщение..." aria-label="Сообщение">
-            <button class="chat-widget__send" type="submit" aria-label="Отправить">→</button>
-        </form>
     </div>
-</div>
 </body>
 </html>
