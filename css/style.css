@@ -406,31 +406,33 @@ footer.site-footer {
    Блок "О магазине" на главной
    ========================================= */
 .about-preview {
+  /* Оставляем блок широким, как сетка товаров */
   max-width: var(--container-width); 
-  margin: var(--space-lg) auto; 
+  /* Уменьшаем вертикальные отступы снаружи (сверху и снизу) */
+  margin: var(--space-md) auto; 
+  /* Уменьшаем внутренние отступы, чтобы блок стал ниже */
   padding: var(--space-md) var(--space-lg); 
   background-color: var(--color-surface);
   border-radius: var(--radius-lg);
-  
-  /* УБИРАЕМ центрирование текста */
   text-align: left; 
-  
   border: 1px solid var(--color-border);
 }
 
 .about-preview h2 {
   border-bottom: none;
   margin-top: 0;
-  margin-bottom: var(--space-sm);
+  /* Уменьшаем отступ под заголовком */
+  margin-bottom: var(--space-sm); 
 }
 
 .about-preview p {
-  /* Ограничиваем ширину текста, чтобы он не растекался на весь экран */
-  max-width: 800px; 
-  /* Убираем auto, чтобы текст прижался к левому краю */
+  /* УБИРАЕМ ограничение max-width, чтобы текст растянулся на всю ширину */
+  max-width: none; 
+  /* Оставляем отступ только снизу, чтобы абзацы шли плотнее */
   margin: 0 0 var(--space-xs) 0; 
   font-size: 1rem;
-  line-height: 1.5;
+  /* Немного уменьшаем межстрочный интервал для компактности */
+  line-height: 1.4; 
   color: var(--color-text);
 }
 
