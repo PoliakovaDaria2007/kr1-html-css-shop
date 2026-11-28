@@ -44,18 +44,19 @@
         </div>
     </header>
 
-    <main>
+        <main>
         <!-- Блок 1: Приветствие (Hero) -->
         <section class="hero">
             <h1>Интернет магазин "Леонардо": Всё для творчества!</h1>
             <p>Всё для вашего творчества: от первой кисти до сложного проекта. Вдохновляйтесь, создавайте и воплощайте самые смелые идеи вместе с Леонардо.</p>
             <div class="hero__actions">
                 <a class="button button--primary" href="catalog.html">Перейти в каталог</a>
+                <a class="button button--secondary" href="contacts.html">Контакты</a>
                 <a class="button button--secondary" href="about_us.html">О нас</a>
             </div>
         </section>
 
-        <!-- Блок 2: Популярные товары (Возвращаем карточки) -->
+        <!-- Блок 2: Популярные товары (3 штуки) -->
         <section class="section" id="popular">
             <h2>Популярные товары</h2>
             <div class="products-grid">
@@ -137,35 +138,10 @@
                     </div>
                 </article>
 
-                <!-- Карточка 4 (добавим 4-ю, так как сетка теперь по 4 в ряд) -->
-                <article class="product-card">
-                    <img src="images/canvas.jpg" alt="Холст на подрамнике" class="product-card__img">
-                    <button class="product-card__favorite" 
-                            data-favorite="Холст на подрамнике" 
-                            data-price="450" 
-                            data-image="images/canvas.jpg" 
-                            aria-label="В избранное" title="В избранное">♡</button>
-                    <h3 class="product-card__title">Холст на подрамнике</h3>
-                    <p class="product-card__description">Размер 30х40 см.</p>
-                    <p class="product-card__price">Цена: 450 руб.</p>
-                    <div class="product-card__actions">
-                        <button class="button button--secondary product-card__button" 
-                                data-action="details" data-title="Холст на подрамнике" data-price="450" 
-                                data-category="Для художников" data-stock="В наличии"
-                                data-desc="Грунтованный холст на подрамнике." data-image="images/canvas.jpg">
-                            Подробнее
-                        </button>
-                        <button class="button button--primary product-card__button" 
-                                data-action="order" data-title="Холст на подрамнике">
-                            Заказать
-                        </button>
-                    </div>
-                </article>
-
             </div>
         </section>
         
-        <!-- Блок 3: О магазине (тот самый блок) -->
+        <!-- Блок 3: О магазине -->
         <section class="about-preview">
             <h2>О нашем магазине</h2>
             <p>«Леонардо» — это не просто магазин, это пространство для вдохновения. Мы собираем лучшие материалы для художников, рукодельниц и всех, кто любит создавать красоту своими руками.</p>
