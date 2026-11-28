@@ -406,15 +406,15 @@ footer.site-footer {
    Блок "О магазине" на главной
    ========================================= */
 .about-preview {
-  /* Растягиваем на всю ширину контейнера */
   max-width: var(--container-width); 
-  /* Отступ от товаров и до футера */
   margin: var(--space-lg) auto; 
-  /* Уменьшаем вертикальные отступы */
   padding: var(--space-md) var(--space-lg); 
   background-color: var(--color-surface);
   border-radius: var(--radius-lg);
-  text-align: center; 
+  
+  /* УБИРАЕМ центрирование текста */
+  text-align: left; 
+  
   border: 1px solid var(--color-border);
 }
 
@@ -425,8 +425,10 @@ footer.site-footer {
 }
 
 .about-preview p {
-  max-width: 800px;
-  margin: 0 auto var(--space-xs); 
+  /* Ограничиваем ширину текста, чтобы он не растекался на весь экран */
+  max-width: 800px; 
+  /* Убираем auto, чтобы текст прижался к левому краю */
+  margin: 0 0 var(--space-xs) 0; 
   font-size: 1rem;
   line-height: 1.5;
   color: var(--color-text);
@@ -436,7 +438,6 @@ footer.site-footer {
   display: inline-block; 
   margin-top: var(--space-sm); 
 }
-
 /* =========================================
    Папки-категории
    ========================================= */
