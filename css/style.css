@@ -358,11 +358,8 @@ footer.site-footer {
    Блок приветствия (Hero) на главной
    ========================================= */
 .hero {
-  /* Растягиваем на всю ширину контейнера (как сетка товаров) */
   max-width: var(--container-width); 
-  /* Отступ от шапки и до товаров */
   margin: var(--space-lg) auto; 
-  /* Уменьшаем вертикальные отступы (компактная высота) */
   padding: var(--space-md) var(--space-lg); 
   background-color: var(--color-surface);
   border-radius: var(--radius-lg);
@@ -406,11 +403,8 @@ footer.site-footer {
    Блок "О магазине" на главной
    ========================================= */
 .about-preview {
-  /* Оставляем блок широким, как сетка товаров */
   max-width: var(--container-width); 
-  /* Уменьшаем вертикальные отступы снаружи (сверху и снизу) */
   margin: var(--space-md) auto; 
-  /* Уменьшаем внутренние отступы, чтобы блок стал ниже */
   padding: var(--space-md) var(--space-lg); 
   background-color: var(--color-surface);
   border-radius: var(--radius-lg);
@@ -421,17 +415,13 @@ footer.site-footer {
 .about-preview h2 {
   border-bottom: none;
   margin-top: 0;
-  /* Уменьшаем отступ под заголовком */
   margin-bottom: var(--space-sm); 
 }
 
 .about-preview p {
-  /* УБИРАЕМ ограничение max-width, чтобы текст растянулся на всю ширину */
   max-width: none; 
-  /* Оставляем отступ только снизу, чтобы абзацы шли плотнее */
   margin: 0 0 var(--space-xs) 0; 
   font-size: 1rem;
-  /* Немного уменьшаем межстрочный интервал для компактности */
   line-height: 1.4; 
   color: var(--color-text);
 }
@@ -440,6 +430,7 @@ footer.site-footer {
   display: inline-block; 
   margin-top: var(--space-sm); 
 }
+
 /* =========================================
    Папки-категории
    ========================================= */
@@ -1351,19 +1342,24 @@ footer.site-footer {
   margin-bottom: var(--space-xl);
 }
 
+/* 
+   ВНУТРЕННИЕ СТРАНИЦЫ 
+   Убрали жесткое растягивание, чтобы контент (например, контакты) 
+   не сжимался в узкую колонку.
+*/
 .inner-page main {
-  min-height: 85vh; 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  min-height: auto; 
+  display: block;
   padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
 }
 
 .inner-page .section {
+  flex-grow: 0; 
   margin-bottom: var(--space-xl);
-  flex-grow: 1; 
 }
 
+/* Стилизация списка на странице контактов */
 .contact-list {
   list-style: none;
   padding: 0;
@@ -1377,6 +1373,10 @@ footer.site-footer {
 
 .contact-list strong {
   display: inline-block;
-  width: 140px;
+  width: 130px; /* Немного уменьшили, чтобы значения были ближе */
   color: var(--color-text);
+}
+
+.faq {
+  max-width: 100%; /* FAQ теперь на всю ширину */
 }
