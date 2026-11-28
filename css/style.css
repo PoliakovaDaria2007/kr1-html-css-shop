@@ -358,25 +358,33 @@ footer.site-footer {
    Блок приветствия (Hero) на главной
    ========================================= */
 .hero {
-  /* Делаем блок такой же ширины, как и "О магазине" */
-  max-width: 900px; 
-  margin: 0 auto var(--space-xl);
-  padding: var(--space-xl) var(--space-lg);
+  /* Растягиваем на всю ширину контейнера (как сетка товаров) */
+  max-width: var(--container-width); 
+  /* Отступ от шапки и до товаров */
+  margin: var(--space-lg) auto; 
+  /* Уменьшаем вертикальные отступы (компактная высота) */
+  padding: var(--space-md) var(--space-lg); 
   background-color: var(--color-surface);
   border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border); /* Добавили рамку для единого стиля */
+  border: 1px solid var(--color-border);
 }
 
 .hero h1 {
   margin-top: 0;
+  margin-bottom: var(--space-sm); 
   color: var(--color-text);
+}
+
+.hero p {
+  margin-top: 0;
+  margin-bottom: var(--space-md);
 }
 
 .hero__actions {
   display: flex;
   gap: var(--space-md);
   flex-wrap: wrap;
-  margin-top: var(--space-lg);
+  margin-top: 0; 
 }
 
 /* =========================================
@@ -398,11 +406,12 @@ footer.site-footer {
    Блок "О магазине" на главной
    ========================================= */
 .about-preview {
-  /* Ограничиваем ширину так же, как у Hero */
-  max-width: 900px; 
-  margin: 0 auto var(--space-xl);
-  /* Увеличиваем вертикальные отступы, чтобы блок был выше */
-  padding: var(--space-xl) var(--space-xl); 
+  /* Растягиваем на всю ширину контейнера */
+  max-width: var(--container-width); 
+  /* Отступ от товаров и до футера */
+  margin: var(--space-lg) auto; 
+  /* Уменьшаем вертикальные отступы */
+  padding: var(--space-md) var(--space-lg); 
   background-color: var(--color-surface);
   border-radius: var(--radius-lg);
   text-align: center; 
@@ -412,20 +421,20 @@ footer.site-footer {
 .about-preview h2 {
   border-bottom: none;
   margin-top: 0;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
 }
 
 .about-preview p {
-  max-width: 700px;
-  margin: 0 auto var(--space-md);
+  max-width: 800px;
+  margin: 0 auto var(--space-xs); 
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.5;
   color: var(--color-text);
 }
 
 .about-preview .button {
   display: inline-block; 
-  margin-top: var(--space-sm);
+  margin-top: var(--space-sm); 
 }
 
 /* =========================================
@@ -545,9 +554,7 @@ footer.site-footer {
    ========================================= */
 .products-grid {
   display: grid;
-  /* Равномерно распределяем на 3 колонки */
   grid-template-columns: repeat(3, 1fr); 
-  /* Увеличиваем отступ между карточками */
   gap: var(--space-xl); 
 }
 
@@ -1312,7 +1319,6 @@ footer.site-footer {
    АНИМАЦИИ И СКРОЛЛИНГ
    ========================================= */
 
-/* Класс для анимации появления */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -1324,10 +1330,6 @@ footer.site-footer {
   transform: translateY(0);
 }
 
-/* 
-  ГЛАВНАЯ СТРАНИЦА
-  Убираем жесткое растягивание на 100vh
-*/
 .home-page main {
   padding: 0; 
 }
@@ -1346,9 +1348,6 @@ footer.site-footer {
   margin-bottom: var(--space-xl);
 }
 
-/* 
-   ВНУТРЕННИЕ СТРАНИЦЫ (2 экрана)
-*/
 .inner-page main {
   min-height: 85vh; 
   display: flex;
@@ -1362,7 +1361,6 @@ footer.site-footer {
   flex-grow: 1; 
 }
 
-/* Стилизация списка на странице контактов */
 .contact-list {
   list-style: none;
   padding: 0;
